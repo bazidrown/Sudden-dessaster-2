@@ -370,7 +370,7 @@ base_elevation 1
 create_land {
 terrain_type DIRT
 if TINY_MAP 
-assign_to AT_COLOR 2 0 0
+assign_to_player 2
 else assign_to AT_COLOR 4 0 0
 endif
 land_position 69 69
@@ -383,7 +383,7 @@ base_elevation 1
 create_land {
 terrain_type DIRT
 if TINY_MAP
-assign_to AT_COLOR 1 0 0
+assign_to_player 1
 else
 assign_to AT_COLOR 3 0 0 
 endif
