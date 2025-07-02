@@ -206,7 +206,7 @@ left_border 89
 endif
 top_border 20
 land_position 99 99
-border_fuzziness 20
+border_fuzziness 1
 land_percent 100
 clumping_factor 40
 base_elevation 1
@@ -215,7 +215,7 @@ base_elevation 1
 
 create_land {
 terrain_type DLC_DESERTGRAVEL
-number_of_tiles 0
+number_of_tiles 460
 base_size 12
 land_position 4 5
 border_fuzziness 100
@@ -227,7 +227,7 @@ base_elevation 1
 create_land {
 terrain_type DLC_DESERTGRAVEL
 if TINY_MAP
-number_of_tiles 0
+number_of_tiles 460
 else
 number_of_tiles 0
 endif
@@ -242,7 +242,7 @@ base_elevation 1
 create_land {
 terrain_type DLC_DESERTGRAVEL
 if TINY_MAP
-number_of_tiles 0
+number_of_tiles 460
 else
 number_of_tiles 500
 endif
@@ -257,7 +257,7 @@ base_elevation 1
 create_land {
 terrain_type DLC_DESERTGRAVEL
 if TINY_MAP
-number_of_tiles 0
+number_of_tiles 460
 else
 number_of_tiles 0
 endif
@@ -272,7 +272,7 @@ base_elevation 1
 create_land {
 terrain_type DLC_DESERTGRAVEL
 if TINY_MAP
-number_of_tiles 0
+number_of_tiles 460
 else
 number_of_tiles 0
 endif
@@ -288,7 +288,7 @@ base_elevation 1
 create_land {
 terrain_type DLC_DESERTGRAVEL
 if TINY_MAP
-number_of_tiles 0
+number_of_tiles 460
 else
 number_of_tiles 0
 endif
@@ -302,11 +302,7 @@ base_elevation 1
 
 create_land {
 terrain_type DLC_DESERTGRAVEL
-if TINY_MAP
-number_of_tiles 0
-else
-number_of_tiles 0
-endif
+number_of_tiles 460
 base_size 12
 land_position 64 5
 border_fuzziness 100
@@ -318,7 +314,7 @@ base_elevation 1
 create_land {
 terrain_type DLC_DESERTGRAVEL
 if TINY_MAP
-number_of_tiles 0
+number_of_tiles 460
 else
 number_of_tiles 0
 endif
@@ -329,50 +325,11 @@ land_percent 100
 clumping_factor 40
 
 }
-if LARGE_MAP
-create_land {
-terrain_type DLC_DESERTGRAVEL
-if TINY_MAP
-number_of_tiles 0
-else
-number_of_tiles 0
-endif
-base_size 12
-land_position 73 5
-border_fuzziness 100
-land_percent 100
-clumping_factor 40
 
-}
-endif
 
 create_land {
 terrain_type DIRT
-assign_to AT_COLOR 6 0 0
-land_position 13 60
-number_of_tiles 0
-base_size 10
-base_elevation 1
-}
-
-create_land {
-terrain_type DIRT
-if TINY_MAP 
-assign_to AT_COLOR 4 0 0
-else assign_to AT_COLOR 2 0 0
-endif
-land_position 40 87
-number_of_tiles 0
-base_size 10
-base_elevation 1
-}
-
-create_land {
-terrain_type DIRT
-if TINY_MAP 
 assign_to_player 2
-else assign_to AT_COLOR 4 0 0
-endif
 land_position 69 69
 number_of_tiles 0
 base_size 10
@@ -382,39 +339,12 @@ base_elevation 1
 
 create_land {
 terrain_type DIRT
-if TINY_MAP
 assign_to_player 1
-else
-assign_to AT_COLOR 3 0 0 
-endif
 land_position 32 32
 number_of_tiles 0
 base_size 10
 base_elevation 1
 }
-
-create_land {
-terrain_type DIRT
-if TINY_MAP
-assign_to AT_COLOR 3 0 0
-else
-assign_to AT_COLOR 1 0 0 
-endif
-land_position 66 18
-number_of_tiles 0
-base_size 10
-base_elevation 1
-}
-
-create_land {
-terrain_type DIRT
-assign_to AT_COLOR 5 0 0
-land_position 79 35
-number_of_tiles 0
-base_size 10
-base_elevation 1
-}
-
 
 
 
