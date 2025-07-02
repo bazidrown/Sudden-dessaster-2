@@ -1093,7 +1093,7 @@ create_object FLARE
     number_of_objects 9999
     set_scaling_to_map_size
     terrain_to_place_on DIRT
-    resource_delta 3593 /* default storage is 7, so add 23 to get 30 seconds till the wall explodes */
+    resource_delta 1793 /* default storage is 7, so add 23 to get 30 seconds till the wall explodes */
 }
 
 create_object TOWN_CENTER
