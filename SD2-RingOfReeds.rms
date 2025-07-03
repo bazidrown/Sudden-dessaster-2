@@ -1,0 +1,1030 @@
+
+/* RingOfReeds by MingudaiLee 23/4/2021
+
+	Other name: MingLee_10
+
+	Compatibility: Definitive Edition
+
+*/
+
+
+	#const FARMLAND_EMPTY 29
+	#const FARMLAND_DEAD 8
+	#const DIRT_MUD 76 
+	#const GRAVEL 70
+	#const HORSE 814
+	#const YURT2 713
+	#const YURT4 715
+	#const PLACEHOLDER_OBJECT 0
+	#const ROCK 623
+	#const FLOWER_BED 859
+	#const BUSH 302
+	#const ROCK2 918
+	#const CRACKS 241
+	#const CRATER 723
+	#const SEA_ROCKS_1 389
+	#const SEA_ROCKS_2 396
+	#const QUARRY 914 
+	#const ANIMAL_SKELETON 1091
+	#const SNOW_STRONG 74
+	#const SNOW_LIGHT 73
+	#const ROMAN_RUINS 856
+	#const PLANT_SHRUB 1362
+	#const PLANT_FLOWERS 1366
+	#const SKELETON 710
+	#const RUG 711	
+	#const MOUNTAIN6 1042
+	#const MOUNTAIN7 1043
+	#const MOUNTAIN8 1044
+	#const SNOW_MOUNTAIN1 1045
+	#const SNOW_MOUNTAIN2 1046
+	#const SNOW_MOUNTAIN3 1047
+	#const BURNED_BUILDING 758
+	#const BROKEN_CART 858
+	#const LEAVES 71
+	#const BUTTERFLIES_A 1608
+	#const RUINS 345
+	#const POENARY 445
+	#const SMOKE 902
+	#const FLAME1 939
+	#const FLAME2 940
+	#const FLAME3 941
+	#const FLAME4 942
+	#const DEADPLANT 1365
+	#const RUBBLE2 144
+	#const RUBBLE3 145
+	#const RUBBLE4 146
+	#const BARRELS 933
+	#const WEEDS 1364
+	#const GRAVELROAD 78
+	#const JUNGLE_LEAVES 77
+	#const GRASS_JUNGLE 83
+	#const WELL 1567
+	#const FEUDALHOUSE 463
+	#const CASTLEHOUSE 464
+	#const PALM_TREE 351
+	#const REEDS 1350
+	#const SHOREFISHHOLDER 278
+	#const WATER_BROWN 96
+	#const PLANT_JUNGLE 1351
+	#const PLANT_RAINFOREST 1354
+	#const WET_BEACH 80
+	#const NOT_AN_EASTER_EGG 118
+	#const TREE_DEAD 1250
+	#const TREE_JUNGLE 414
+	#const JUNGLE_FOREST 17
+
+	#const LUREABLE_A 48
+	#const LUREABLE_B 1139 /* Rhino */
+	#const UNGULATE_A 65
+	
+	#const BASE_TERRAIN 3
+	#const TERRAIN_MIDDLE 100
+	#const FOREST_A 92
+	#const PLACEHOLDER_TERRAIN_MIDDLE 73
+	#const FOREST_B 10
+	#const CIRCLE_TERRAIN 0
+	
+	
+	
+	
+	
+	
+<PLAYER_SETUP>
+	random_placement
+	
+	effect_amount GAIA_UPGRADE_UNIT TREE_JUNGLE TREE_DEAD 0
+
+<LAND_GENERATION>
+	base_terrain BASE_TERRAIN
+	enable_waves 1
+	
+	create_land
+	{
+		terrain_type SHALLOW
+		land_percent 100
+		top_border 15
+		bottom_border 15
+		left_border 15
+		right_border 15
+		border_fuzziness 50
+		land_position 50 50
+		land_id 69
+	}
+	
+	/*
+	create_land
+	{
+		terrain_type CIRCLE_TERRAIN
+		land_percent 100
+		top_border 49
+		bottom_border 49
+		left_border 49
+		right_border 49
+		border_fuzziness 50
+		land_position 50 50
+		land_id 69
+	}
+	*/
+	
+	create_player_lands
+	{
+		terrain_type SHALLOW
+		number_of_tiles 1
+		base_size 8
+			
+		clumping_factor 15
+			if TINY_MAP
+		circle_radius 22
+			elseif SMALL_MAP
+		circle_radius 24	
+			elseif MEDIUM_MAP
+		circle_radius 26
+			elseif LARGE_MAP
+		circle_radius 26
+			elseif HUGE_MAP
+		circle_radius 27
+			endif
+	}
+	
+
+
+	<TERRAIN_GENERATION>
+
+
+	create_terrain CIRCLE_TERRAIN
+	{
+		base_terrain SHALLOW
+		land_percent 100
+		number_of_clumps 1000
+											if TINY_MAP
+		spacing_to_other_terrain_types 30
+											elseif SMALL_MAP
+		spacing_to_other_terrain_types 35
+											elseif MEDIUM_MAP
+		spacing_to_other_terrain_types 40
+											elseif LARGE_MAP
+		spacing_to_other_terrain_types 45
+											else
+		spacing_to_other_terrain_types 47
+											endif
+		set_avoid_player_start_areas
+	}
+
+
+	
+	create_terrain TERRAIN_MIDDLE
+	{
+		base_terrain SHALLOW
+		land_percent 100
+		number_of_clumps 1000
+		spacing_to_other_terrain_types 1
+	}
+	
+	create_terrain FOREST_A
+	{
+		base_terrain TERRAIN_MIDDLE
+		land_percent 100
+		number_of_clumps 1000
+											if TINY_MAP
+		spacing_to_other_terrain_types 11
+											elseif SMALL_MAP
+		spacing_to_other_terrain_types 13
+											elseif MEDIUM_MAP
+		spacing_to_other_terrain_types 14
+											elseif LARGE_MAP
+		spacing_to_other_terrain_types 17
+											elseif HUGE_MAP
+		spacing_to_other_terrain_types 17
+											endif
+		set_avoid_player_start_areas
+	}
+	
+	create_terrain FOREST_A
+	{
+		base_terrain TERRAIN_MIDDLE
+		land_percent 4
+		number_of_clumps 1000
+			if TINY_MAP
+		spacing_to_other_terrain_types 8
+			elseif SMALL_MAP
+		spacing_to_other_terrain_types 9	
+			elseif MEDIUM_MAP
+		spacing_to_other_terrain_types 10
+			elseif LARGE_MAP
+		spacing_to_other_terrain_types 12
+			elseif HUGE_MAP
+		spacing_to_other_terrain_types 12
+			endif
+		set_avoid_player_start_areas
+	}
+	
+	create_terrain TERRAIN_MIDDLE
+	{
+		base_terrain FOREST_A
+		land_percent 100
+		number_of_clumps 10000
+		spacing_to_other_terrain_types 0
+		terrain_mask 1
+	}
+	
+	
+	create_terrain FOREST_B
+	{
+		base_terrain BASE_TERRAIN
+		land_percent 8
+		number_of_clumps 20
+		spacing_to_other_terrain_types 1
+		set_avoid_player_start_areas
+		set_scale_by_groups
+	}
+	
+	create_terrain JUNGLE_FOREST
+	{
+		base_terrain FOREST_B
+		land_percent 3
+		number_of_clumps 80
+		spacing_to_other_terrain_types 0
+		set_avoid_player_start_areas
+	}
+	
+	/* Visuals for the middle */
+	
+	create_terrain DIRT_MUD
+	{
+		base_terrain TERRAIN_MIDDLE
+		land_percent 5
+		number_of_clumps 20
+		spacing_to_other_terrain_types 1
+		terrain_mask 1
+	}
+	
+	create_terrain LEAVES
+	{
+		base_terrain TERRAIN_MIDDLE
+		land_percent 4
+		number_of_clumps 20
+		spacing_to_other_terrain_types 1
+		terrain_mask 1
+	}
+	
+	/* Visuals for the reeds */
+	
+		
+	create_terrain DIRT
+	{
+		base_terrain FOREST_A
+		number_of_tiles 30
+		number_of_clumps 30
+		spacing_to_other_terrain_types 3
+		set_avoid_player_start_areas
+	}
+	
+	
+	create_terrain JUNGLE_FOREST
+	{
+		base_terrain FOREST_A
+		number_of_tiles 60
+		number_of_clumps 40
+		spacing_to_other_terrain_types 2
+		set_avoid_player_start_areas
+	}
+
+	/* Visuals for the shallow ring */
+	
+	create_terrain DLC_NEWSHALLOW
+	{
+		base_terrain SHALLOW
+		land_percent 3
+		number_of_clumps 300
+		spacing_to_other_terrain_types 0
+		set_avoid_player_start_areas
+		terrain_mask 1
+	}
+	
+	
+	/* Visuals for the outside */
+	
+	create_terrain FARMLAND_DEAD
+	{
+		base_terrain BASE_TERRAIN
+		land_percent 6
+		number_of_clumps 30
+		spacing_to_other_terrain_types 1
+		set_avoid_player_start_areas
+		terrain_mask 2
+	}
+	
+	create_terrain GRASS
+	{
+		base_terrain BASE_TERRAIN
+		land_percent 6
+		number_of_clumps 20
+		spacing_to_other_terrain_types 1
+		set_avoid_player_start_areas
+		terrain_mask 1
+	}
+	
+	/* Visuals for the middle */
+	
+	create_terrain TERRAIN_MIDDLE
+	{
+		base_terrain CIRCLE_TERRAIN
+			
+			if TINY_MAP
+		number_of_tiles 20
+			elseif MEDIUM_MAP
+		number_of_tiles 100
+			elseif LARGE_MAP
+		land_percent 1
+			 elseif HUGE_MAP
+		number_of_tiles 550
+		 	else
+		land_percent 1
+			endif
+		number_of_clumps 10
+		spacing_to_other_terrain_types 1
+		set_avoid_player_start_areas
+		terrain_mask 1
+	}
+
+	<CONNECTION_GENERATION>
+	
+	create_connect_to_nonplayer_land
+	{
+	replace_terrain FOREST_A TERRAIN_MIDDLE
+	replace_terrain DIRT TERRAIN_MIDDLE
+	terrain_size DIRT 2 0
+	terrain_cost FOREST_A 1
+		if LARGE_MAP
+	terrain_size FOREST_A 8 0
+		else
+	terrain_size FOREST_A 8 0
+		endif
+	
+	}
+	
+	<ELEVATION_GENERATION>
+	
+	create_elevation 2
+	{
+		enable_balanced_elevation
+		base_terrain BASE_TERRAIN
+		number_of_tiles 2000
+		number_of_clumps 50
+		set_scale_by_groups
+	}
+	
+	
+	<OBJECTS_GENERATION>
+	
+	/* Starting units and buildings */
+	create_object TOWN_CENTER
+	{
+		set_place_for_every_player
+		min_distance_to_players 0
+		max_distance_to_players 0
+		force_placement
+
+		actor_area 1
+	}
+	
+	create_object PALISADE_WALL
+	{
+		set_place_for_every_player
+		min_distance_to_players 12
+		max_distance_to_players 12
+		force_placement
+		
+		actor_area 999
+		actor_area_radius 2
+
+	}
+	
+	create_object VILLAGER
+	{
+		set_place_for_every_player
+
+		if EMPIRE_WARS
+			number_of_objects 0
+		elseif REGICIDE
+			number_of_objects 10
+		endif
+
+		min_distance_to_players 6
+		max_distance_to_players 7
+		temp_min_distance_group_placement 1
+
+		actor_area 2
+		actor_area_radius 1
+	}
+	
+	create_object SCOUT
+	{
+		set_place_for_every_player
+		min_distance_to_players 7
+		max_distance_to_players 9
+
+		actor_area 3
+		actor_area_radius 1
+
+		avoid_actor_area 2 /* Villagers */
+	}
+
+	if REGICIDE
+		create_object KING
+		{
+			set_place_for_every_player
+			min_distance_to_players 7
+			max_distance_to_players 9
+			avoid_forest_zone 1
+
+			actor_area 200
+			actor_area_radius 1
+
+			avoid_actor_area 2 /* Villagers */
+			avoid_actor_area 3 /* Scout or Queen */
+		}
+
+		create_object CASTLE
+		{
+			set_place_for_every_player
+			min_distance_to_players 14
+			find_closest
+
+			max_distance_to_other_zones 4
+			avoid_forest_zone 2
+			avoid_cliff_zone 2
+
+			actor_area 210
+			actor_area_radius 4
+
+			avoid_actor_area 2 /* Villagers */
+			avoid_actor_area 3 /* Scout or Queen */
+			avoid_actor_area 200 /* King */
+		}
+		endif
+		
+		
+		/* Player stragglers */
+	
+	if DEATH_MATCH
+	elseif INFINITE_RESOURCES
+	else
+		create_object TREE_DEAD
+		{
+			set_place_for_every_player
+			set_gaia_object_only
+
+			if EMPIRE_WARS
+				number_of_objects 0
+			else
+				number_of_objects 4
+			endif
+
+			min_distance_to_players 5
+			find_closest
+			resource_delta 1
+
+			temp_min_distance_group_placement 4
+			avoid_forest_zone 2
+
+			actor_area 10
+			actor_area_radius 1
+
+			avoid_actor_area 2 /* Villagers */
+			avoid_actor_area 3 /* Scout or Queen */
+		}
+	endif
+	
+	
+		create_object PLACEHOLDER_OBJECT
+		{
+			number_of_objects 10000
+			terrain_to_place_on BASE_TERRAIN
+			temp_min_distance_group_placement 4
+			place_on_specific_land_id 69
+
+			actor_area 111
+				if TINY_MAP
+			actor_area_radius 19
+				elseif SMALL_MAP
+			actor_area_radius 20	
+				elseif MEDIUM_MAP
+			actor_area_radius 22
+				elseif LARGE_MAP
+			actor_area_radius 24
+				elseif HUGE_MAP
+			actor_area_radius 25
+				
+				endif
+		}
+		
+
+	
+
+		create_object PLACEHOLDER_OBJECT
+		{
+			number_of_objects 1
+			min_distance_to_players 0
+			max_distance_to_players 0
+			place_on_specific_land_id 69
+			terrain_to_place_on CIRCLE_TERRAIN
+
+			actor_area 112
+				if TINY_MAP
+			actor_area_radius 22
+				elseif SMALL_MAP
+			actor_area_radius 25	
+				elseif MEDIUM_MAP
+			actor_area_radius 40
+				elseif LARGE_MAP
+			actor_area_radius 50
+				elseif HUGE_MAP
+			actor_area_radius 60
+				
+				endif
+		}
+	
+	/*		
+	create_object SHEEP
+	{
+		number_of_objects 1000000
+		actor_area_to_place_in 111
+	}
+	*/
+
+			/* Main Gold */
+
+	create_object GOLD
+		{
+
+			avoid_actor_area 111		
+			
+			set_place_for_every_player
+			set_gaia_object_only
+			number_of_objects 7
+			set_tight_grouping
+			group_placement_radius 1
+			min_distance_to_players 8
+			max_distance_to_players 12
+			find_closest
+
+			max_distance_to_other_zones 1
+			avoid_forest_zone 0
+			avoid_cliff_zone 3
+
+			actor_area 80
+			actor_area_radius 1
+
+			avoid_actor_area 2 /* Villagers */
+			avoid_actor_area 3 /* Scout or Queen */
+			avoid_actor_area 200 /* King */
+			avoid_actor_area 210 /* Castle or Monastery */
+			avoid_actor_area 999 /* Wall */
+		}
+
+	
+	/* Main sheep, generated in the actor area of the scout */
+	create_object SHEEP
+	{
+		set_place_for_every_player
+		set_gaia_object_only
+		number_of_objects 4
+
+		actor_area_to_place_in 3
+	}
+
+		
+		/* Secondary sheep */
+	create_object SHEEP
+	{
+		set_place_for_every_player
+		set_loose_grouping
+
+		set_gaia_object_only
+		number_of_objects 2
+		number_of_groups 2
+		group_placement_radius 1
+		min_distance_to_players 18
+		max_distance_to_players 22
+
+		temp_min_distance_group_placement 16
+
+		avoid_forest_zone 2
+
+		actor_area 21
+		actor_area_radius 1
+		
+		avoid_actor_area 112
+	}
+
+
+	/* Boars */
+	
+	create_object LUREABLE_A
+	{
+		set_place_for_every_player
+		set_gaia_object_only
+		number_of_objects 2
+		min_distance_to_players 14
+		find_closest
+		temp_min_distance_group_placement 16
+		avoid_forest_zone 1
+
+
+		actor_area 30
+		actor_area_radius 2
+		
+		avoid_actor_area 112
+	}
+
+	/* Secondary Golds */	
+		
+	create_object GOLD
+	{
+		set_place_for_every_player
+		set_gaia_object_only
+		number_of_objects 4
+		number_of_groups 1
+		temp_min_distance_group_placement 12
+		set_tight_grouping
+		group_placement_radius 1
+		min_distance_to_players 11
+			if TINY_MAP
+		max_distance_to_players 14
+			elseif MEDIUM_MAP
+		max_distance_to_players 15
+			elseif LARGE_MAP
+		max_distance_to_players 15
+			else
+		max_distance_to_players 16
+			endif
+		terrain_to_place_on TERRAIN_MIDDLE
+
+		max_distance_to_other_zones 0
+		avoid_forest_zone 1
+
+		actor_area 81
+		actor_area_radius 4
+		avoid_actor_area 2 /* Villagers */
+		avoid_actor_area 3 /* Scout or Queen */
+		avoid_actor_area 200 /* King */
+		avoid_actor_area 210 /* Castle or Monastery */
+		avoid_actor_area 801 /* Gold Placeholder */
+		avoid_actor_area 999 /* Wall */
+		avoid_actor_area 112 /* MIDDLE */
+	}
+	
+	create_object GOLD
+	{
+		set_place_for_every_player
+		set_gaia_object_only
+		number_of_objects 4
+		number_of_groups 1
+		temp_min_distance_group_placement 8
+		set_tight_grouping
+		group_placement_radius 1
+		min_distance_to_players 11
+		find_closest
+
+		max_distance_to_other_zones 0
+		avoid_forest_zone 1
+		avoid_cliff_zone 3
+
+		actor_area 81
+		actor_area_radius 4
+		avoid_actor_area 2 /* Villagers */
+		avoid_actor_area 3 /* Scout or Queen */
+		avoid_actor_area 200 /* King */
+		avoid_actor_area 210 /* Castle or Monastery */
+		avoid_actor_area 801 /* Gold Placeholder */
+		avoid_actor_area 999 /* Wall */
+		avoid_actor_area 111 /* MIDDLE */
+	}
+	
+	/* Main Stone */
+	
+		create_object STONE
+		{
+			set_place_for_every_player
+			set_gaia_object_only
+			number_of_objects 5
+			set_tight_grouping
+			group_placement_radius 1
+			min_distance_to_players 9
+			max_distance_to_players 12
+			find_closest
+
+			max_distance_to_other_zones 0
+			avoid_forest_zone 0
+			avoid_cliff_zone 3
+
+			actor_area 90
+			actor_area_radius 6
+
+			avoid_actor_area 2 /* Villagers */
+			avoid_actor_area 3 /* Scout or Queen */
+			avoid_actor_area 80 /* Main Gold */
+			avoid_actor_area 200 /* King */
+			avoid_actor_area 210 /* Castle or Monastery */
+			avoid_actor_area 801 /* Gold Placeholder */
+			actor_area_to_place_in 111 /* Middle */
+			avoid_actor_area 999 /* Walls */
+		}
+	
+		/* Secondary Stone */
+	
+			create_object STONE
+		{
+			set_place_for_every_player
+			set_gaia_object_only
+			number_of_objects 4
+			set_tight_grouping
+			group_placement_radius 1
+			min_distance_to_players 11
+			find_closest
+			temp_min_distance_group_placement 6
+
+			max_distance_to_other_zones 0
+			avoid_forest_zone 1
+
+			actor_area 91
+			actor_area_radius 12
+
+			avoid_actor_area 2 /* Villagers */
+			avoid_actor_area 3 /* Scout or Queen */
+			avoid_actor_area 81 /* Secondary Gold */
+			avoid_actor_area 90 /* Primary Stone */
+			avoid_actor_area 200 /* King */
+			avoid_actor_area 210 /* Castle or Monastery */
+			avoid_actor_area 111 /* Middle */
+			avoid_actor_area 999 /* Walls */
+		}
+
+	/* Extra resources */
+	
+	create_object GOLD
+	{
+		set_gaia_object_only
+		number_of_objects 3
+		number_of_groups 2
+		set_tight_grouping
+		group_placement_radius 1
+		min_distance_to_players 50
+			if TINY_MAP
+		temp_min_distance_group_placement 25
+			else
+		temp_min_distance_group_placement 55
+			endif
+		min_distance_group_placement 2
+		terrain_to_place_on BASE_TERRAIN
+		set_scaling_to_map_size
+		avoid_forest_zone 1
+	}
+	
+	create_object STONE
+	{
+		set_gaia_object_only
+		number_of_objects 2
+		number_of_groups 2
+		set_tight_grouping
+		group_placement_radius 1
+		min_distance_to_players 50
+			if TINY_MAP
+		temp_min_distance_group_placement 25
+			else
+		temp_min_distance_group_placement 55
+			endif
+		terrain_to_place_on BASE_TERRAIN
+		min_distance_group_placement 2
+		set_scaling_to_map_size
+		avoid_forest_zone 1
+	}
+	
+	
+	create_object SHOREFISHHOLDER
+	{
+		number_of_objects 500
+		temp_min_distance_group_placement 3
+		terrain_to_place_on SHALLOW
+		set_scaling_to_map_size
+		second_object SHORE_FISH
+	}
+	
+	create_object GOLD
+	{
+		number_of_objects 500
+		temp_min_distance_group_placement 6
+		terrain_to_place_on DIRT
+		set_scaling_to_map_size
+	}
+	
+	create_object ROCK2
+	{
+		number_of_objects 500
+		temp_min_distance_group_placement 2
+		terrain_to_place_on DIRT
+		set_scaling_to_map_size
+	}
+	
+	
+	/* Circle */
+	
+	create_object FORAGE_BUSH
+	{
+		number_of_objects 3
+		number_of_groups 6
+			if TINY_MAP
+		set_tight_grouping
+			elseif SMALL_MAP
+		set_tight_grouping
+			else
+		group_placement_radius 2
+			endif
+		temp_min_distance_group_placement 3
+		terrain_to_place_on CIRCLE_TERRAIN
+		set_scaling_to_map_size
+	}
+	
+	create_object OAKTREE
+	{
+		number_of_objects 1
+		number_of_groups 4
+		temp_min_distance_group_placement 4
+		terrain_to_place_on CIRCLE_TERRAIN
+		set_scaling_to_map_size
+		avoid_forest_zone 2
+	}
+
+	create_object ROMAN_RUINS
+	{
+		number_of_objects 1
+		number_of_groups 1
+		temp_min_distance_group_placement 6
+		terrain_to_place_on CIRCLE_TERRAIN
+		set_scaling_to_map_size
+		avoid_forest_zone 2
+	}
+
+	create_object RUG
+	{
+		number_of_objects 1
+		number_of_groups 2
+		temp_min_distance_group_placement 6
+		terrain_to_place_on CIRCLE_TERRAIN
+		set_scaling_to_map_size
+		avoid_forest_zone 2
+	}
+
+	create_object STATUE
+	{
+		number_of_objects 1
+		terrain_to_place_on CIRCLE_TERRAIN
+		max_distance_to_other_zones 3
+	}
+
+	create_object FLOWER_BED
+	{
+		number_of_objects 1
+		number_of_groups 2
+		temp_min_distance_group_placement 3
+		terrain_to_place_on CIRCLE_TERRAIN
+		set_scaling_to_map_size
+	}
+	
+	create_object PLANT_FLOWERS
+	{
+		number_of_objects 4
+		temp_min_distance_group_placement 2
+		terrain_to_place_on CIRCLE_TERRAIN
+		set_scaling_to_map_size
+	}
+	
+	/* Middle */
+
+	create_object UNGULATE_A
+	{
+		number_of_objects 2
+		number_of_groups 18
+		min_distance_to_players 28
+		set_tight_grouping
+		temp_min_distance_group_placement 8
+		terrain_to_place_on TERRAIN_MIDDLE
+		set_scaling_to_map_size
+		avoid_forest_zone 2
+	}
+
+	create_object UNGULATE_A
+	{
+		number_of_objects 2
+		number_of_groups 3
+		set_tight_grouping
+		temp_min_distance_group_placement 2
+		terrain_to_place_on CIRCLE_TERRAIN
+		set_scaling_to_map_size
+		avoid_forest_zone 2
+	}
+
+	/* Outside */
+	
+	create_object DEADPLANT
+	{
+		number_of_objects 30
+		temp_min_distance_group_placement 5
+		terrain_to_place_on BASE_TERRAIN
+		set_scaling_to_map_size
+	}
+	
+	create_object PLANT_SHRUB
+	{
+		number_of_objects 30
+		temp_min_distance_group_placement 5
+		terrain_to_place_on BASE_TERRAIN
+		set_scaling_to_map_size
+	}
+				
+	create_object FORAGE_BUSH
+	{
+		number_of_objects 4
+		number_of_groups 6
+		group_placement_radius 1
+		min_distance_to_players 40
+		temp_min_distance_group_placement 40
+		terrain_to_place_on BASE_TERRAIN
+		set_scaling_to_map_size
+		avoid_forest_zone 2
+	}
+	
+	
+	/* Stragglers for middle */
+	
+	create_object TREE_DEAD
+	{
+		number_of_objects 25
+		temp_min_distance_group_placement 4
+		terrain_to_place_on TERRAIN_MIDDLE
+		set_scaling_to_map_size
+		min_distance_to_players 13
+		
+		avoid_actor_area 999 /* Walls */
+	}
+	
+	create_object REEDS
+	{
+		number_of_objects 15
+		temp_min_distance_group_placement 3
+		terrain_to_place_on TERRAIN_MIDDLE
+		set_scaling_to_map_size
+		min_distance_to_players 13
+		
+		avoid_actor_area 999 /* Walls */
+	}
+	
+	/* Stragglers for outside */
+	
+	create_object OAKTREE
+	{
+		number_of_objects 30
+		temp_min_distance_group_placement 4
+		terrain_to_place_on BASE_TERRAIN
+		set_scaling_to_map_size
+	}
+	
+	
+
+		create_object RELIC
+		{
+			if TINY_MAP
+				number_of_objects 5
+				temp_min_distance_group_placement 28
+			elseif SMALL_MAP
+				number_of_objects 5
+				temp_min_distance_group_placement 30
+			elseif MEDIUM_MAP
+				number_of_objects 5
+				temp_min_distance_group_placement 32
+			elseif LARGE_MAP
+				number_of_objects 7
+				temp_min_distance_group_placement 36
+			elseif HUGE_MAP
+				number_of_objects 8
+				temp_min_distance_group_placement 40
+			elseif GIGANTIC_MAP
+				number_of_objects 9
+				temp_min_distance_group_placement 42
+			elseif LUDIKRIS_MAP
+				number_of_objects 20
+				temp_min_distance_group_placement 84
+			endif
+
+			min_distance_to_players 24
+
+			min_distance_group_placement 1
+			max_distance_to_other_zones 4
+			avoid_forest_zone 2
+			avoid_cliff_zone 2
+
+			actor_area 100
+			actor_area_radius 4
+		}

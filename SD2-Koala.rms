@@ -1,0 +1,835 @@
+/* Koala for RMS Cup 2 */
+
+
+/* KOALA by HenkDeSuperNerd */
+/* version 1.0 */
+
+/* This map was submitted for the Map Contest for RMS Cup 2 in June 2022 */
+
+/* ONLY WORKS FOR 1V1 (for now) */
+
+
+/* ****** DEFINE ******* */
+start_random
+percent_chance 30
+#define FROZEN_MAP
+percent_chance 40
+#define JUNGLE_MAP
+percent_chance 30
+#define TEMPERATE_MAP
+end_random
+
+#const INVISIBLE 647
+
+if FROZEN_MAP
+/* terrains */
+	#const NEAR_FOREST_TERRAIN 60 /* jungle grass */
+	#const MAIN_TERRAIN 12 /* grass2 */
+	#const DIRECT_NEAR_FOREST_TERRAIN 32 /* snow */
+	#const WOODS 21 /* snow forest */
+	#const SECONDARY_PATCH 72 /* snow leaves */
+	#const SECONDARY_WOOD 105 /* snow autumn forest */
+	#const TERTIARY_WOOD 21 /* snow forest */
+	#const PLACEHOLDER_TERRAIN_1 74 /* heavy snow */	
+	#const FACE 76
+	#const SKINTONE 70
+/* objects */
+	#const STRAGGLER1 413 /* snow pine */
+	#const STRAGGLER2 1249 /* snow autumn tree */
+	#const HERDABLE 1245 /* pig */
+	#const PREDATOR 486 /* bear */	
+	#const HUNT 65 /* deer */
+	#const BIGHUNT 48 /* boar */
+	#const EYECANDY1 304 /* bonfire */	
+elseif JUNGLE_MAP
+/* terrains */
+	#const NEAR_FOREST_TERRAIN 71 /* underbrush leaves */
+	#const MAIN_TERRAIN 60 /* jungle grass */
+	#const DIRECT_NEAR_FOREST_TERRAIN 12 /* grass2 */
+	#const WOODS 56 /*  rain forest */
+	#const SECONDARY_PATCH 77 /* jungle leaves */
+	#const SECONDARY_WOOD 17 /* jungle */
+	#const TERTIARY_WOOD 89 /* bush */
+	#const PLACEHOLDER_TERRAIN_1 9 /* grass3 */	
+	#const FACE 76
+	#const SKINTONE 81 /* wet gravel */	
+/* objects */
+	#const STRAGGLER1 1146 /* rainforest tree */
+	#const STRAGGLER2 414 /* jungle tree */
+	#const HERDABLE 833 /* turkey */
+	#const PREDATOR 812 /* jag */
+	#const HUNT 65 /* deer */	
+	#const BIGHUNT 48 /* boar */
+	#const EYECANDY1 1177 /* vases */
+elseif TEMPERATE_MAP
+/* terrains */
+	#const NEAR_FOREST_TERRAIN 0 /* grass */
+	#const MAIN_TERRAIN 12 /* grass2 */
+	#const DIRECT_NEAR_FOREST_TERRAIN 9 /* grass3 */
+	#const WOODS 10 /* forest */
+	#const SECONDARY_PATCH 5 /* leaves */
+	#const SECONDARY_WOOD 104 /* autumn forest */
+	#const TERTIARY_WOOD 20 /* oak bush */
+	#const PLACEHOLDER_TERRAIN_1 71 /* underbrush leaves */	
+	#const FACE 76
+	#const SKINTONE 70	
+/* objects */
+	#const STRAGGLER1 1248 /* oak autumn tree */
+	#const STRAGGLER2 411 /* oak tree */
+	#const HERDABLE 1245 /* pig */
+	#const PREDATOR 486 /* bear */
+	#const HUNT 1239 /* ibex */	
+	#const BIGHUNT 48 /* boar */
+	#const EYECANDY1 1177 /* vases */	
+endif
+
+<PLAYER_SETUP>
+random_placement
+
+<LAND_GENERATION>
+base_terrain DIRECT_NEAR_FOREST_TERRAIN
+create_land
+{
+terrain_type  NEAR_FOREST_TERRAIN
+
+land_percent 100
+clumping_factor 100
+base_size 5
+top_border 25
+left_border 25
+right_border 25
+bottom_border 25
+land_position 50 50
+}
+
+create_player_lands
+{
+terrain_type MAIN_TERRAIN
+circle_radius 29
+land_percent 11
+clumping_factor 25
+base_size 10
+top_border 16
+left_border 16
+right_border 16
+bottom_border 16
+
+}
+
+<ELEVATION_GENERATION>
+
+/* outer hills */
+
+create_elevation 2
+{
+  enable_balanced_elevation
+  base_terrain DIRECT_NEAR_FOREST_TERRAIN
+  if TINY_MAP
+  number_of_clumps 999
+  number_of_tiles 999999
+  elseif SMALL_MAP
+  number_of_clumps 19
+  number_of_tiles 700
+  elseif MEDIUM_MAP
+  number_of_clumps 24
+  number_of_tiles 900  
+  elseif LARGE_MAP
+  number_of_clumps 33
+  number_of_tiles 1200 
+  elseif HUGE_MAP
+  number_of_clumps 40
+  number_of_tiles 1500  
+  else
+  number_of_clumps 50
+  number_of_tiles 2000    
+  endif
+}
+
+create_elevation 5
+{
+  enable_balanced_elevation
+  base_terrain DIRECT_NEAR_FOREST_TERRAIN
+  if TINY_MAP
+  number_of_clumps 35
+  number_of_tiles 3200
+  elseif SMALL_MAP
+  number_of_clumps 19
+  number_of_tiles 700
+  elseif MEDIUM_MAP
+  number_of_clumps 24
+  number_of_tiles 900  
+  elseif LARGE_MAP
+  number_of_clumps 33
+  number_of_tiles 1200 
+  elseif HUGE_MAP
+  number_of_clumps 40
+  number_of_tiles 1500  
+  else
+  number_of_clumps 50
+  number_of_tiles 2000    
+  endif
+}
+
+
+<TERRAIN_GENERATION>
+
+/* spawn magnets */
+create_terrain NEAR_FOREST_TERRAIN
+{
+base_terrain DIRECT_NEAR_FOREST_TERRAIN
+spacing_to_other_terrain_types 8
+land_percent 100
+number_of_clumps 10
+}
+
+/* additional forest clumps */
+create_terrain PLACEHOLDER_TERRAIN_1
+{
+base_terrain NEAR_FOREST_TERRAIN
+spacing_to_other_terrain_types 10
+land_percent 9
+number_of_clumps 17
+set_scale_by_groups
+clumping_factor 50
+height_limits 2 7
+}
+create_terrain PLACEHOLDER_TERRAIN_1
+{
+base_terrain NEAR_FOREST_TERRAIN
+spacing_to_other_terrain_types 5
+land_percent 4
+number_of_clumps 12
+set_scale_by_groups
+clumping_factor 50
+height_limits 2 7
+}
+create_terrain DIRECT_NEAR_FOREST_TERRAIN
+{
+base_terrain PLACEHOLDER_TERRAIN_1
+land_percent 100
+number_of_clumps 999
+set_scale_by_groups
+}
+create_terrain DIRECT_NEAR_FOREST_TERRAIN
+{
+base_terrain PLACEHOLDER_TERRAIN_1
+land_percent 100
+number_of_clumps 999
+set_scale_by_groups
+}
+
+
+/* forests on forest clumps */
+
+create_terrain WOODS
+{
+base_terrain DIRECT_NEAR_FOREST_TERRAIN
+spacing_to_other_terrain_types 1
+land_percent 100
+number_of_clumps 999
+}
+create_terrain WOODS
+{
+base_terrain DIRECT_NEAR_FOREST_TERRAIN
+spacing_to_other_terrain_types 1
+land_percent 100
+number_of_clumps 999
+}
+
+
+/* fill remaining terrain */
+
+create_terrain MAIN_TERRAIN
+{
+base_terrain NEAR_FOREST_TERRAIN
+spacing_to_other_terrain_types 1
+land_percent 100
+number_of_clumps 999
+}
+
+/* ******************** layer masking *************************** */
+
+/* blend near forest terrain */
+create_terrain DIRECT_NEAR_FOREST_TERRAIN
+{
+base_terrain NEAR_FOREST_TERRAIN
+land_percent 100
+number_of_clumps 999
+terrain_mask 2
+}
+create_terrain NEAR_FOREST_TERRAIN
+{
+base_terrain DIRECT_NEAR_FOREST_TERRAIN
+land_percent 1
+number_of_clumps 999
+terrain_mask 1
+}
+
+/* near forest terrain patches */
+	/* small */
+create_terrain DIRECT_NEAR_FOREST_TERRAIN
+{
+base_terrain MAIN_TERRAIN
+land_percent 1
+number_of_clumps 20
+terrain_mask 1
+set_scale_by_groups
+}
+	/* medium */
+create_terrain DIRECT_NEAR_FOREST_TERRAIN
+{
+base_terrain MAIN_TERRAIN
+land_percent 3
+number_of_clumps 20
+terrain_mask 1
+set_scale_by_groups
+}
+
+
+create_terrain FACE
+{
+base_terrain MAIN_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain MAIN_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain MAIN_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain MAIN_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain DIRECT_NEAR_FOREST_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain DIRECT_NEAR_FOREST_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain DIRECT_NEAR_FOREST_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain NEAR_FOREST_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain NEAR_FOREST_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain NEAR_FOREST_TERRAIN
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain WOODS
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain WOODS
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain FACE
+{
+base_terrain WOODS
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+create_terrain PLACEHOLDER_TERRAIN_1
+{
+base_terrain WOODS
+land_percent 100
+number_of_clumps 99
+height_limits 0 0
+}
+
+	/* fix to resolve issue that caused nose missing */
+	create_terrain FACE
+	{
+	base_terrain DIRECT_NEAR_FOREST_TERRAIN
+	land_percent 100
+	number_of_clumps 999
+	height_limits 0 0
+	}
+
+create_terrain WOODS
+{
+base_terrain FACE
+number_of_tiles 150
+number_of_clumps 1
+height_limits 0 3
+clumping_factor 99
+set_scale_by_groups
+spacing_to_other_terrain_types 21
+set_avoid_player_start_areas 25
+}
+create_terrain SKINTONE
+{
+base_terrain FACE
+land_percent 3
+number_of_clumps 20
+spacing_to_other_terrain_types 2
+height_limits 0 0
+}
+
+create_terrain DIRECT_NEAR_FOREST_TERRAIN
+{
+base_terrain FACE
+land_percent 3
+number_of_clumps 20
+terrain_mask 1
+set_scale_by_groups
+}
+
+
+
+
+/* secondary terrain mask patches */
+
+create_terrain SECONDARY_PATCH
+{
+base_terrain MAIN_TERRAIN
+land_percent 2
+number_of_clumps 20
+terrain_mask 1
+set_scale_by_groups
+}
+create_terrain SECONDARY_PATCH
+{
+base_terrain MAIN_TERRAIN
+land_percent 4
+number_of_clumps 20
+terrain_mask 1
+set_scale_by_groups
+}
+
+/* secondary wood patches */
+create_terrain SECONDARY_WOOD
+{
+base_terrain WOODS
+land_percent 4
+terrain_mask 2
+number_of_clumps 40
+set_scale_by_groups
+}
+create_terrain SECONDARY_WOOD
+{
+base_terrain WOODS
+land_percent 1
+terrain_mask 2
+number_of_clumps 30
+set_scale_by_groups
+}
+create_terrain TERTIARY_WOOD
+{
+base_terrain WOODS
+land_percent 3
+terrain_mask 2
+number_of_clumps 30
+set_scale_by_groups
+}
+create_terrain TERTIARY_WOOD
+{
+base_terrain WOODS
+land_percent 2
+terrain_mask 2
+number_of_clumps 40
+set_scale_by_groups
+}
+
+
+<OBJECTS_GENERATION>
+
+create_object TOWN_CENTER
+{
+set_place_for_every_player
+min_distance_to_players 0
+max_distance_to_players 0
+}
+
+create_object VILLAGER
+{
+  set_place_for_every_player
+  min_distance_to_players       6
+  max_distance_to_players       6
+ }
+
+create_object SCOUT
+{
+  number_of_objects             1
+  set_place_for_every_player
+  min_distance_to_players       7
+  max_distance_to_players       9
+ }
+
+
+
+
+/* resource managers */
+	/* town center resource manager */
+create_object EYECANDY1
+{
+  set_gaia_object_only
+  number_of_objects          1
+  set_place_for_every_player
+  min_distance_to_players    0
+  max_distance_to_players    0
+  actor_area 1000
+  actor_area_radius 18
+}	
+create_object INVISIBLE
+{
+  set_gaia_object_only
+  number_of_objects          1
+  set_place_for_every_player
+  min_distance_to_players    0
+  max_distance_to_players    0
+  actor_area 1001
+  actor_area_radius 22
+}
+	/* forward resource manager */
+create_object RELIC
+{
+  set_gaia_object_only
+  set_circular_placement
+  number_of_objects          3
+  number_of_groups
+  set_tight_grouping
+  set_place_for_every_player
+  min_distance_to_players    16
+  max_distance_to_players    17
+  find_closest_to_map_center
+  actor_area 1002
+  actor_area_radius 17
+  min_distance_group_placement 2
+}
+create_object INVISIBLE
+{
+  set_gaia_object_only
+  set_circular_placement
+  number_of_objects          1
+  set_place_for_every_player
+  min_distance_to_players    14
+  max_distance_to_players    15
+  find_closest_to_map_center
+  actor_area 1003
+  actor_area_radius 15
+}
+/* wolves and relic manager */
+create_object INVISIBLE
+{
+  set_gaia_object_only
+  number_of_objects          1
+  set_place_for_every_player
+  min_distance_to_players    0
+  max_distance_to_players    0
+  actor_area 1004
+  actor_area_radius 29
+}
+
+
+
+/* BAA BAA */
+create_object HERDABLE
+{
+set_circular_placement
+   number_of_objects 4
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+   min_distance_to_players    9
+   max_distance_to_players    10
+}
+create_object HERDABLE
+{
+set_circular_placement
+   number_of_objects 2
+   number_of_groups 2
+   set_tight_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+   avoid_actor_area 1000
+   max_distance_to_players    24
+   temp_min_distance_group_placement 10
+   actor_area_to_place_in 1002
+   avoid_forest_zone 2
+}
+
+
+create_object HUNT
+{
+set_circular_placement
+  number_of_objects          3
+  group_placement_radius     3
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+   avoid_actor_area 1000
+  max_distance_to_players    20
+   avoid_forest_zone 2  
+  actor_area_to_place_in 1002
+}
+create_object BIGHUNT
+{
+set_circular_placement
+  number_of_objects          1
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    15
+  max_distance_to_players    19
+   avoid_forest_zone 1    
+  actor_area_to_place_in 1002
+  actor_area 101
+  actor_area_radius 10    
+}
+create_object BIGHUNT
+{
+set_circular_placement
+  number_of_objects          1
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    15
+  max_distance_to_players    19
+   avoid_forest_zone 1  
+  actor_area_to_place_in 1002
+  avoid_actor_area 101  
+}
+
+/* FORWARD FORAGE */
+
+create_object FORAGE
+{
+  set_circular_placement
+  number_of_objects          6
+  group_placement_radius     1
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    10
+  max_distance_to_players    12
+  avoid_forest_zone 10
+  actor_area_to_place_in 1002
+  actor_area 301
+  actor_area_radius 5  
+}
+/* FORWARD GOLD */
+
+create_object STONE
+{
+  set_circular_placement
+  number_of_objects          3
+  group_placement_radius     2
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    17
+  max_distance_to_players    21
+  avoid_forest_zone 5
+  actor_area_to_place_in 1002  
+  actor_area 501
+  actor_area_radius 7
+  avoid_actor_area 301  
+}
+/* FORWARD STONE */
+create_object GOLD
+{
+  set_circular_placement
+  number_of_objects          3
+  group_placement_radius     1
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    16
+  max_distance_to_players    21
+  avoid_forest_zone 5
+  actor_area_to_place_in 1002   
+  actor_area 601
+  actor_area_radius 9
+  avoid_actor_area 301
+  avoid_actor_area 501  
+}
+
+/* SMALL NEAR GOLD */
+create_object GOLD
+{
+  number_of_objects          4
+  temp_min_distance_group_placement 5
+  group_placement_radius     1
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    10
+  max_distance_to_players    12
+  avoid_forest_zone 2
+  actor_area 502
+  actor_area_radius 4
+  avoid_actor_area 301 
+  avoid_actor_area 501
+  avoid_actor_area 1003  
+}
+
+/* SMALL NEAR STONE */
+create_object STONE
+{
+  number_of_objects          4
+  group_placement_radius     1
+  temp_min_distance_group_placement 5 
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    11
+  max_distance_to_players    14
+  avoid_forest_zone 2
+  actor_area 602
+  actor_area_radius 4  
+  avoid_actor_area 301
+  avoid_actor_area 501
+  avoid_actor_area 502
+  avoid_actor_area 601
+  avoid_actor_area 1003  
+}
+
+
+/* neutral resources */
+
+create_object GOLD
+{
+  set_circular_placement
+  number_of_objects          2
+  number_of_groups			 20
+  group_placement_radius     1
+  set_tight_grouping
+ set_gaia_object_only 
+  min_distance_to_players    22
+  actor_area 504
+  actor_area_radius 10
+  avoid_forest_zone 2
+  avoid_actor_area 301
+  avoid_actor_area 501
+  avoid_actor_area 502  
+  avoid_actor_area 503  
+  avoid_actor_area 601
+  avoid_actor_area 602
+terrain_to_place_on MAIN_TERRAIN
+temp_min_distance_group_placement 12
+}
+
+create_object STONE
+{
+  set_circular_placement
+  number_of_objects          2
+  number_of_groups			 5
+  group_placement_radius     1
+  set_tight_grouping
+  set_gaia_object_only
+  min_distance_to_players    22
+  actor_area 603
+  actor_area_radius 10  
+  avoid_forest_zone 2
+  avoid_actor_area 301
+  avoid_actor_area 501
+  avoid_actor_area 502  
+  avoid_actor_area 503  
+  avoid_actor_area 601
+  avoid_actor_area 602 
+  avoid_actor_area 504
+terrain_to_place_on MAIN_TERRAIN  
+temp_min_distance_group_placement 12
+}
+
+
+
+
+/* straggler trees */ 
+create_object STRAGGLER1
+{
+  number_of_objects             2
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players       4
+  max_distance_to_players       5
+  min_distance_group_placement  2
+}
+create_object STRAGGLER2
+{
+  number_of_objects             3
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players       6
+  max_distance_to_players       8
+  min_distance_group_placement  2
+}
+
+
+create_object STRAGGLER1
+{
+  number_of_objects             12
+  set_gaia_object_only
+  avoid_actor_area 1001
+  min_distance_group_placement  1
+  set_scaling_to_map_size
+  avoid_forest_zone 1
+}
+create_object STRAGGLER2
+{
+  number_of_objects             13
+  set_gaia_object_only
+  avoid_actor_area 1001
+  min_distance_group_placement  1
+  set_scaling_to_map_size
+  avoid_forest_zone 1
+}
+
+/* GRAWL */
+create_object PREDATOR
+{
+  number_of_objects             4
+  set_gaia_object_only
+  avoid_actor_area 1004
+  min_distance_group_placement  1
+  temp_min_distance_group_placement 15
+  set_scaling_to_map_size
+  avoid_forest_zone 1
+}
