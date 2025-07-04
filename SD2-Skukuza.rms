@@ -29,8 +29,14 @@ v2:	added 9 villager start compatability
 #define NINE_VIL_START
 
 <PLAYER_SETUP>
-					effect_amount MOD_RESOURCE AMOUNT_STARTING_WOOD ATTR_ADD -30
-					effect_amount MOD_RESOURCE AMOUNT_STARTING_FOOD ATTR_ADD -90
+guard_state TOWN_CENTER AMOUNT_GOLD 0 1
+#const TC_TECH 187
+#const CUMAN_TC  218
+effect_amount DISABLE_TECH TC_TECH ATTR_DISABLE 187
+effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
+
+effect_amount MOD_RESOURCE AMOUNT_STARTING_WOOD ATTR_ADD -30
+effect_amount MOD_RESOURCE AMOUNT_STARTING_FOOD ATTR_ADD -90
 random_placement
 behavior_version 1
 effect_amount UPGRADE_UNIT CYPRESS_TREE DLC_BAOBABTREE 0
