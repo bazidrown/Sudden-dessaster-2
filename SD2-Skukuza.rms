@@ -1672,51 +1672,20 @@ create_object DLC_GOAT
 create_object DLC_GOAT
 {
    number_of_objects 2
-   number_of_groups 1
+   number_of_groups 2
    set_loose_grouping
    set_gaia_object_only
    set_place_for_every_player
-	start_random
-		percent_chance 33
-			min_distance_to_players 14
-			max_distance_to_players 18
-		percent_chance 33
-			min_distance_to_players 16
-			max_distance_to_players 20
-		percent_chance 34
-			min_distance_to_players 18
-			max_distance_to_players 22
-	end_random
+	min_distance_to_players 14
+	max_distance_to_players 18
 	avoid_forest_zone 2
 	avoid_cliff_zone 3
 	max_distance_to_other_zones 2
 	min_distance_group_placement 3
+	temp_min_distance_group_placement 10
 	find_closest_to_map_edge
 }
-create_object DLC_GOAT
-{
-   number_of_objects 2
-   number_of_groups 1
-   set_loose_grouping
-   set_gaia_object_only
-   set_place_for_every_player
-	start_random
-		percent_chance 33
-			min_distance_to_players 14
-			max_distance_to_players 18
-		percent_chance 33
-			min_distance_to_players 16
-			max_distance_to_players 20
-		percent_chance 34
-			min_distance_to_players 18
-			max_distance_to_players 22
-	end_random
-	avoid_forest_zone 2
-	avoid_cliff_zone 3
-	max_distance_to_other_zones 2
-	min_distance_group_placement 3
-	find_closest_to_map_edge
-}
+
 create_object DLC_BAOBABTREE
 {
 	if NINE_VIL_START
