@@ -26,7 +26,7 @@ v2:	added 9 villager start compatability
 #define INNER
 #define OUTER
 #define OUTEROUTER
-#define NINE_VIL_START
+
 
 <PLAYER_SETUP>
 guard_state TOWN_CENTER AMOUNT_GOLD 0 1
@@ -35,8 +35,6 @@ guard_state TOWN_CENTER AMOUNT_GOLD 0 1
 effect_amount DISABLE_TECH TC_TECH ATTR_DISABLE 187
 effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 
-effect_amount MOD_RESOURCE AMOUNT_STARTING_WOOD ATTR_ADD -30
-effect_amount MOD_RESOURCE AMOUNT_STARTING_FOOD ATTR_ADD -90
 random_placement
 behavior_version 1
 effect_amount UPGRADE_UNIT CYPRESS_TREE DLC_BAOBABTREE 0
@@ -1548,241 +1546,7 @@ create_terrain DIRT3
 						if DEBUG_MODE
 							second_object FLAG_D
 						endif
-					}
-
-					if CENTRALISE_OBJECT
-						create_object PH_GENERIC_ON
-					else
-						create_object PH_GENERIC_OFF
-					endif
-					{
-						second_object DLC_COW
-						set_place_for_every_player
-						min_distance_to_players 1
-						max_distance_to_players 1
-						find_closest
-
-						actor_area 2000
-						actor_area_radius 1
-
-						avoid_actor_area 5100 /* Herdable Positioner */
-					}
-
-				start_random
-				  percent_chance 50 #define LM_A
-				  percent_chance 50 #define LF_A
-				end_random
-				
-				if CENTRALISE_OBJECT
-				  if LM_A
-				   create_object LAZY_MALE
-				  elseif LF_A
-				   create_object LAZY_FEMALE
-				  endif
-				else
-				  create_object PH_GENERIC_OFF
-				endif
-				{
-				  set_place_for_every_player
-				  min_distance_to_players 1
-				  actor_area_to_place_in 2000 /* EW Herdable */
-				
-				  actor_area 1000
-				  actor_area_radius 0
-				
-				  avoid_actor_area 1000 /* Villager */
-				  avoid_actor_area 5102 /* Villager Avoider */
-				  avoid_actor_area 5103 /* Blocking Seventh Villager */
-				
-				  if CENTRALISE_OBJECT
-				  else
-				    if LM_A
-				     second_object LAZY_MALE
-				    elseif LF_A
-				      second_object LAZY_FEMALE
-				    endif
-				  endif
-				}
-				
-				start_random
-				  percent_chance 50 #define LM_B
-				  percent_chance 50 #define LF_B
-				end_random
-				
-				if CENTRALISE_OBJECT
-				  if LM_B
-				   create_object LAZY_MALE
-				  elseif LF_B
-				   create_object LAZY_FEMALE
-				  endif
-				else
-				  create_object PH_GENERIC_OFF
-				endif
-				{
-				  set_place_for_every_player
-				  min_distance_to_players 1
-				  actor_area_to_place_in 2000 /* EW Herdable */
-				
-				  actor_area 1000
-				  actor_area_radius 0
-				
-				  avoid_actor_area 1000 /* Villager */
-				  avoid_actor_area 5102 /* Villager Avoider */
-				  avoid_actor_area 5103 /* Blocking Seventh Villager */
-				
-				  if CENTRALISE_OBJECT
-				  else
-				    if LM_B
-				     second_object LAZY_MALE
-				    elseif LF_B
-				      second_object LAZY_FEMALE
-				    endif
-				  endif
-				}
-				
-				start_random
-				  percent_chance 50 #define LM_C
-				  percent_chance 50 #define LF_C
-				end_random
-				
-				if CENTRALISE_OBJECT
-				  if LM_C
-				   create_object LAZY_MALE
-				  elseif LF_C
-				   create_object LAZY_FEMALE
-				  endif
-				else
-				  create_object PH_GENERIC_OFF
-				endif
-				{
-				  set_place_for_every_player
-				  min_distance_to_players 1
-				  actor_area_to_place_in 2000 /* EW Herdable */
-				
-				  actor_area 1000
-				  actor_area_radius 0
-				
-				  avoid_actor_area 1000 /* Villager */
-				  avoid_actor_area 5102 /* Villager Avoider */
-				  avoid_actor_area 5103 /* Blocking Seventh Villager */
-				
-				  if CENTRALISE_OBJECT
-				  else
-				    if LM_C
-				     second_object LAZY_MALE
-				    elseif LF_C
-				      second_object LAZY_FEMALE
-				    endif
-				  endif
-				}
-				
-				start_random
-				  percent_chance 50 #define LM_D
-				  percent_chance 50 #define LF_D
-				end_random
-				
-				if CENTRALISE_OBJECT
-				  if LM_D
-				   create_object LAZY_MALE
-				  elseif LF_D
-				   create_object LAZY_FEMALE
-				  endif
-				else
-				  create_object PH_GENERIC_OFF
-				endif
-				{
-				  set_place_for_every_player
-				  min_distance_to_players 1
-				  actor_area_to_place_in 2000 /* EW Herdable */
-				
-				  actor_area 1000
-				  actor_area_radius 0
-				
-				  avoid_actor_area 1000 /* Villager */
-				  avoid_actor_area 5102 /* Villager Avoider */
-				  avoid_actor_area 5103 /* Blocking Seventh Villager */
-				
-				  if CENTRALISE_OBJECT
-				  else
-				    if LM_D
-				     second_object LAZY_MALE
-				    elseif LF_D
-				      second_object LAZY_FEMALE
-				    endif
-				  endif
-				}
-				
-				start_random
-				  percent_chance 50 #define LM_E
-				  percent_chance 50 #define LF_E
-				end_random
-				
-				if CENTRALISE_OBJECT
-				  if LM_E
-				   create_object LAZY_MALE
-				  elseif LF_E
-				   create_object LAZY_FEMALE
-				  endif
-				else
-				  create_object PH_GENERIC_OFF
-				endif
-				{
-				  set_place_for_every_player
-				  min_distance_to_players 1
-				  actor_area_to_place_in 2000 /* EW Herdable */
-				
-				  actor_area 1000
-				  actor_area_radius 0
-				
-				  avoid_actor_area 1000 /* Villager */
-				  avoid_actor_area 5102 /* Villager Avoider */
-				  avoid_actor_area 5103 /* Blocking Seventh Villager */
-				
-				  if CENTRALISE_OBJECT
-				  else
-				    if LM_E
-				     second_object LAZY_MALE
-				    elseif LF_E
-				      second_object LAZY_FEMALE
-				    endif
-				  endif
-				}
-				
-				start_random
-				  percent_chance 50 #define LM_F
-				  percent_chance 50 #define LF_F
-				end_random
-				
-				if CENTRALISE_OBJECT
-				  if LM_F
-				   create_object LAZY_MALE
-				  elseif LF_F
-				   create_object LAZY_FEMALE
-				  endif
-				else
-				  create_object PH_GENERIC_OFF
-				endif
-				{
-				  set_place_for_every_player
-				  min_distance_to_players 1
-				  actor_area_to_place_in 2000 /* EW Herdable */
-				
-				  actor_area 1000
-				  actor_area_radius 0
-				
-				  avoid_actor_area 1000 /* Villager */
-				  avoid_actor_area 5102 /* Villager Avoider */
-				  avoid_actor_area 5103 /* Blocking Seventh Villager */
-				
-				  if CENTRALISE_OBJECT
-				  else
-				    if LM_F
-				     second_object LAZY_MALE
-				    elseif LF_F
-				      second_object LAZY_FEMALE
-				    endif
-				  endif
-				}
+					}				
 
 create_object DLC_BAOBABTREE
 { 
@@ -1798,26 +1562,6 @@ create_object DLC_BAOBABTREE
 	actor_area 5423
 	actor_area_radius 1
 }
-
-create_object VILLAGER
-{
-	set_place_for_every_player
-	number_of_objects 3
-	actor_area_to_place_in 5423
-}
-
-		#const ESCALATION_REVEALER 1775
-		effect_amount SET_ATTRIBUTE ESCALATION_REVEALER ATTR_DEAD_ID -1
-		effect_amount SET_ATTRIBUTE ESCALATION_REVEALER ATTR_TERRAIN_ID 0
-		effect_amount SET_ATTRIBUTE ESCALATION_REVEALER ATTR_LINE_OF_SIGHT 20
-		effect_amount SET_ATTRIBUTE ESCALATION_REVEALER ATTR_HITPOINTS 0
-
-				create_object ESCALATION_REVEALER
-				{
-					set_place_for_every_player
-					min_distance_to_players 0
-					max_distance_to_players 0
-				}
 
 create_object ON_GRID
 {
@@ -1855,17 +1599,6 @@ else
 		max_distance_to_players 6
 	}
 endif
-
-create_object HOUSE 
-{
-	number_of_objects 2
-	temp_min_distance_group_placement 6
-	find_closest
-	set_place_for_every_player
-	avoid_actor_area 1010
-}
-
-
 
 create_object FORAGE
 {
@@ -1935,6 +1668,54 @@ create_object DLC_GOAT
 	endif
 		min_distance_to_players 6
 		max_distance_to_players 7
+}
+create_object DLC_GOAT
+{
+   number_of_objects 2
+   number_of_groups 1
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+	start_random
+		percent_chance 33
+			min_distance_to_players 14
+			max_distance_to_players 18
+		percent_chance 33
+			min_distance_to_players 16
+			max_distance_to_players 20
+		percent_chance 34
+			min_distance_to_players 18
+			max_distance_to_players 22
+	end_random
+	avoid_forest_zone 2
+	avoid_cliff_zone 3
+	max_distance_to_other_zones 2
+	min_distance_group_placement 3
+	find_closest_to_map_edge
+}
+create_object DLC_GOAT
+{
+   number_of_objects 2
+   number_of_groups 1
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+	start_random
+		percent_chance 33
+			min_distance_to_players 14
+			max_distance_to_players 18
+		percent_chance 33
+			min_distance_to_players 16
+			max_distance_to_players 20
+		percent_chance 34
+			min_distance_to_players 18
+			max_distance_to_players 22
+	end_random
+	avoid_forest_zone 2
+	avoid_cliff_zone 3
+	max_distance_to_other_zones 2
+	min_distance_group_placement 3
+	find_closest_to_map_edge
 }
 create_object DLC_BAOBABTREE
 {
