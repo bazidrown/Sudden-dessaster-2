@@ -370,7 +370,7 @@ endif
 land_id 101
 base_elevation 1
 clumping_factor 20
-}
+} 
 create_land {
 terrain_type DESERT
 land_position 57 57
@@ -985,10 +985,12 @@ set_tight_grouping
 temp_min_distance_group_placement 5
 avoid_forest_zone 4
 if TINY_MAP
-min_distance_to_map_edge 25
+min_distance_to_map_edge 26
 else 
 min_distance_to_map_edge 40
 endif
+avoid_actor_area 999
+min_distance_to_players 30
 }
 
 create_object STONE {
