@@ -894,8 +894,7 @@ actor_area_to_place_in 1003
 avoid_actor_area 1004
 set_gaia_unconvertible
 actor_area 119911
-actor_area_radius 2
-
+actor_area_radius 3
 }
 
 
@@ -905,6 +904,8 @@ find_closest
 set_place_for_every_player 
 place_on_specific_land_id 1169
 max_distance_to_players 60
+actor_area 42
+actor_area_radius 10
 } 
 
 create_object SCOUT {
