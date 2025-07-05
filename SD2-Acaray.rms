@@ -47,6 +47,16 @@ effect_amount GAIA_SET_ATTRIBUTE STATUE_1 ATTR_STANDING_GRAPHIC 1691
 
 <LAND_GENERATION>
 base_terrain DIRT
+create_land { base_size 3 land_position 77 29 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
+create_land { base_size 3 land_position 77 31 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
+create_land { base_size 3 land_position 80 32 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
+create_land { base_size 3 land_position 80 35 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
+create_land { base_size 3 land_position 78 32 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
+create_land { base_size 3 land_position 80 35 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
+create_land { base_size 3 land_position 77 36 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
+create_land { base_size 3 land_position 77 39 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
+create_land { base_size 3 land_position 75 36 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
+create_land { base_size 3 land_position 75 39 terrain_type DIRT number_of_tiles 0 base_elevation 0 }
 create_land { base_size 3 land_position 80 20 terrain_type SHALLOW number_of_tiles 0 base_elevation 0 }
 create_land { base_size 3 land_position 78 21 terrain_type SHALLOW number_of_tiles 0 base_elevation 0 }
 create_land { base_size 3 land_position 76 20 terrain_type SHALLOW number_of_tiles 0 base_elevation 0 }
@@ -328,7 +338,6 @@ land_position 69 5
 border_fuzziness 100
 land_percent 100
 clumping_factor 40
-
 }
 
 
@@ -537,7 +546,8 @@ land_percent 100
 number_of_clumps 100
 terrain_mask 2
 spacing_to_other_terrain_types 1
-}
+height_limits 0 0
+} 
 
 create_terrain LEAVES {
 base_terrain DLC_DIRT4
@@ -709,7 +719,7 @@ terrain_mask 1
 number_of_clumps 10
 set_scale_by_groups
 spacing_to_other_terrain_types 1
-}
+} 
 create_terrain DLC_QUICKSAND {
 base_terrain BROWNWATER
 number_of_tiles 45
