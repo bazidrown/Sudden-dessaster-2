@@ -644,3 +644,45 @@ max_distance_to_players 8
 min_distance_to_players 7
 place_on_specific_land_id 1
 } 
+create_object DLC_ACACIATREE {
+	number_of_objects 2
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 4
+	max_distance_to_players 5
+	set_circular_placement
+	min_distance_group_placement 1
+	place_on_specific_land_id 1
+}
+create_object DLC_ACACIATREE {
+	number_of_objects 2
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 4
+	max_distance_to_players 5
+	set_circular_placement
+	min_distance_group_placement 1
+	place_on_specific_land_id 2
+}
+create_object DLC_ACACIATREE {
+	number_of_objects 3
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 6
+	max_distance_to_players 8
+	set_circular_placement
+	min_distance_group_placement 1
+	avoid_forest_zone 2
+	place_on_specific_land_id 1
+}
+create_object DLC_ACACIATREE {
+	number_of_objects 3
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 6
+	max_distance_to_players 8
+	set_circular_placement
+	min_distance_group_placement 1
+	avoid_forest_zone 2
+	place_on_specific_land_id 2
+}
