@@ -570,9 +570,29 @@ create_object PINETREE
 }
 create_object PINETREE
 {
+	number_of_objects 2
+	set_gaia_object_only
+	place_on_specific_land_id 2
+	min_distance_to_players 4
+	max_distance_to_players 5
+	min_distance_group_placement 2
+	avoid_actor_area 5
+}
+create_object PINETREE
+{
 	number_of_objects 3
 	set_gaia_object_only
 	place_on_specific_land_id 1
+	min_distance_to_players 6
+	max_distance_to_players 8
+	min_distance_group_placement 2
+	avoid_actor_area 5
+}
+create_object PINETREE
+{
+	number_of_objects 3
+	set_gaia_object_only
+	place_on_specific_land_id 2
 	min_distance_to_players 6
 	max_distance_to_players 8
 	min_distance_group_placement 2
@@ -645,22 +665,3 @@ create_object BUSH_A
 	avoid_actor_area 5
 }
 
-create_object DLC_AUTUMNTREE {
-	number_of_objects 2
-	set_gaia_object_only
-	set_place_for_every_player
-	min_distance_to_players 4
-	max_distance_to_players 5
-	set_circular_placement
-	min_distance_group_placement 1
-}
-create_object DLC_AUTUMNTREE {
-	number_of_objects 3
-	set_gaia_object_only
-	set_place_for_every_player
-	min_distance_to_players 6
-	max_distance_to_players 8
-	set_circular_placement
-	min_distance_group_placement 1
-	avoid_forest_zone 2
-}
