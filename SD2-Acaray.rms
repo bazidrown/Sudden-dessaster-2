@@ -895,16 +895,6 @@ number_of_objects 10000
 actor_area_to_place_in 1001
 avoid_actor_area 1002
 set_gaia_unconvertible
-
-}
-create_object WALL {
-set_gaia_object_only
-number_of_objects 10000
-actor_area_to_place_in 1003
-avoid_actor_area 1004
-set_gaia_unconvertible
-actor_area 119911
-actor_area_radius 3
 }
 
 
@@ -915,7 +905,7 @@ set_place_for_every_player
 place_on_specific_land_id 1169
 max_distance_to_players 60
 actor_area 999
-actor_area_radius 10
+actor_area_radius 5
 } 
 
 create_object SCOUT {
