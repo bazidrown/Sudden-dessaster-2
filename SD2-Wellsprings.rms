@@ -134,12 +134,12 @@ create_terrain ROAD2
 create_terrain DLC_SAVANNAH
 {
 	base_terrain ROAD2
-	land_percent 5
-	number_of_clumps 8
+	land_percent 7
+	number_of_clumps 14
 	set_scale_by_groups
 	set_flat_terrain_only
 	spacing_to_other_terrain_types 3
-	set_avoid_player_start_areas 18
+	set_avoid_player_start_areas 16
 }
 create_terrain DLC_ACACIAFOREST
 {
