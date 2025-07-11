@@ -519,8 +519,8 @@ create_object SHEEP { number_of_objects 4 set_loose_grouping set_gaia_object_onl
 create_object SHEEP { number_of_objects 4 set_loose_grouping set_gaia_object_only place_on_specific_land_id 8 min_distance_to_players 8 find_closest } 
 
 /* secondary sheep */
-create_object SHEEP { number_of_objects 2 number_of_groups 2 set_loose_grouping set_gaia_object_only place_on_specific_land_id 1 min_distance_to_players 14 max_distance_to_players 18 max_distance_to_other_zones 3 avoid_forest_zone 2 } 
-create_object SHEEP { number_of_objects 2 number_of_groups 2 set_loose_grouping set_gaia_object_only place_on_specific_land_id 2 min_distance_to_players 14 max_distance_to_players 18 max_distance_to_other_zones 3 avoid_forest_zone 2 } 
+create_object SHEEP { number_of_objects 2 number_of_groups 2 set_loose_grouping set_gaia_object_only place_on_specific_land_id 1 min_distance_to_players 14 max_distance_to_players 15 max_distance_to_other_zones 3 avoid_forest_zone 2 } 
+create_object SHEEP { number_of_objects 2 number_of_groups 2 set_loose_grouping set_gaia_object_only place_on_specific_land_id 2 min_distance_to_players 14 max_distance_to_players 15 max_distance_to_other_zones 3 avoid_forest_zone 2 } 
 create_object SHEEP { number_of_objects 2 number_of_groups 2 set_loose_grouping set_gaia_object_only place_on_specific_land_id 3 min_distance_to_players 14 max_distance_to_players 18 max_distance_to_other_zones 3 avoid_forest_zone 2 } 
 create_object SHEEP { number_of_objects 2 number_of_groups 2 set_loose_grouping set_gaia_object_only place_on_specific_land_id 4 min_distance_to_players 14 max_distance_to_players 18 max_distance_to_other_zones 3 avoid_forest_zone 2 } 
 create_object SHEEP { number_of_objects 2 number_of_groups 2 set_loose_grouping set_gaia_object_only place_on_specific_land_id 5 min_distance_to_players 14 max_distance_to_players 18 max_distance_to_other_zones 3 avoid_forest_zone 2 } 
