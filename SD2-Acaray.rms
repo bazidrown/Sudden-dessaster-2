@@ -1045,12 +1045,17 @@ avoid_actor_area 999
 
 create_object DLC_IBEX {
 set_gaia_object_only
+set_place_for_every_player
 number_of_objects 4
-number_of_groups 4
+number_of_groups 2
 layer_to_place_on DLC_ROCK
 temp_min_distance_group_placement 30
 avoid_actor_area 119911
-
+start_random
+percent_chance 33 find_closest_to_map_edge
+percent_chance 33 find_closest_to_map_center
+percent_chance 34 find_closest
+end_random
 }
 create_object CACTUS {
 number_of_objects 1
