@@ -242,7 +242,7 @@ create_object CITY_WALL
 	set_gaia_object_only
 	set_gaia_unconvertible
 	terrain_to_place_on DIRT2
-	min_distance_to_players 9
+	min_distance_to_players 10
 	set_circular_placement
 	actor_area 4
 	actor_area_radius 0
