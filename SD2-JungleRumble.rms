@@ -599,7 +599,9 @@ create_object DLC_ZEBRA
 	min_distance_to_players 20
 	max_distance_to_players 30
 	min_distance_group_placement 10
-	
+	terrain_to_place_on GRASS3
+	temp_min_distance_group_placement 30
+	avoid_forest_zone 3
 }
 if DLC_GOAT
 	create_object DLC_GOAT /* secondary */
