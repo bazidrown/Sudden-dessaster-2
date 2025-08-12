@@ -1,11 +1,11 @@
 /*
 
 	Arena by Forgotten Empires
+
 	Created: 06/01/2025
-	Updated: N/A
+	Updated: 27/06/2025
 	
-	Version: 1.0
-	BSV: 1.1.0
+	Version: 2.2
 
 */
 
@@ -23,9 +23,9 @@
 
 if ANTIQUITY_MODE
 	start_random
-		percent_chance 60
-			#define THEME_EUROPEAN
-		percent_chance 40
+		percent_chance 80
+			#define PALAEARCTIC_EUROPE_TEMPERATE
+		percent_chance 20
 			#define THEME_SELECTION
 	end_random
 else
@@ -34,60 +34,29 @@ endif
 
 if THEME_SELECTION
 	start_random
-		percent_chance 10 #define THEME_AFRICAN
-		percent_chance 10 #define THEME_AMERICAS_TROPICAL
-		percent_chance 10 #define THEME_AMERICAS_TEMPERATE
-		percent_chance 10 #define THEME_ARCTIC_NORTH
-		percent_chance 10 #define THEME_ASIAN_COLD
-		percent_chance 10 #define THEME_ASIAN_TROPICAL
-		percent_chance 10 #define THEME_ASIAN_TEMPERATE
-		percent_chance 10 #define THEME_EASTERN
-		percent_chance 10 #define THEME_EUROPEAN
-		percent_chance 10 #define THEME_EUROPEAN_COLD
+		percent_chance 10 #define AFROTROPICAL_TROPICAL
+		percent_chance 10 #define NEOTROPICAL_TROPICAL
+		percent_chance 10 #define NEARCTIC_TEMPERATE
+		percent_chance 10 #define NEARCTIC_TUNDRA
+		percent_chance 10 #define PALAEARCTIC_ASIA_TAIGA
+		percent_chance 10 #define INDOMALAYAN_TROPICAL
+		percent_chance 10 #define PALAEARCTIC_ASIA_TEMPERATE
+		percent_chance 10 #define PALAEARCTIC_MIDDLE_EAST_DESERT
+		percent_chance 10 #define PALAEARCTIC_EUROPE_TEMPERATE
+		percent_chance 10 #define PALAEARCTIC_EUROPE_TAIGA
 	end_random
 endif
 
 /* #define CENTRALISE_SPAWN */
 /* #define RESTRICTED_SPAWN */
-/* #define CLOSE_PROXIMITY */
-
-/* #define ENABLE_CLIFFS */
-#define ENABLE_WALLS
 
 /* ----------------------------------- Nomad Settings */
 
 /* #define NOMAD_MAP */
-/* #define SCATTERED_VILLAGERS */
+/* #define NOMAD_SCATTERED */
 /* #define NOMAD_UNIT */
-#define ENABLE_TREATY
-/* #define STARTING_HERDABLE */
-
-/* ----------------------------------- Regicide Settings */
-
-#define REGICIDE_BUILDING
-/* #define NOMAD_CASTLE */
-/* #define FORWARD_PLACEMENT */
-
-/* ----------------------------------- Empire Wars Settings */
-
-#define ENABLE_FORAGERS
-/* #define ENABLE_HUNTERS */
-/* #define ENABLE_FISHERMEN */
-/* #define ENABLE_DOCK */
-
-/* ----------------------------------- Escalation Mode Settings */
-
-/* #define STARTING_LUMBER */
-#define SIGHT_INCREASE
-
-/* ----------------------------------- Miscellaneous Settings */
-
-#define LEGACY_RELICS
-/* #define SAFE_LUREABLE */
-/* #define MAJOR_HUNTABLE */
-/* #define LEGACY_CODE */
-#define HERDABLE_VARIATION
-#define HERDABLE_SMALL_VARIATION
+#define NOMAD_TREATY
+/* #define NOMAD_HERDABLE */
 
 /* ----------------------------------- Themes & Overwrites */
 
@@ -97,9 +66,9 @@ endif
 
 #define MAP_CONSTANTS
 if MAP_CONSTANTS
-	if THEME_AFRICAN
-		#const S_STRAGGLER 1051 /* Dragon Tree */
-		#const O_STRAGGLER 1063 /* Acacia Tree */
+	if AFROTROPICAL_TROPICAL
+		#const STRAGGLER_SPAWN 1051 /* Dragon Tree */
+		#const STRAGGLER_NEUTRAL 1063 /* Acacia Tree */
 
 		#const BEACH_TERRAIN 2
 
@@ -138,9 +107,9 @@ if MAP_CONSTANTS
 		#const PREDATOR_TERRAIN 41
 		#const STRAGGLER_TERRAIN 41
 		#const RELIC_TERRAIN 41
-	elseif THEME_AMERICAS_TROPICAL
-		#const S_STRAGGLER 1146 /* Rainforest Tree */
-		#const O_STRAGGLER 1146 /* Rainforest Tree */
+	elseif NEOTROPICAL_TROPICAL
+		#const STRAGGLER_SPAWN 1146 /* Rainforest Tree */
+		#const STRAGGLER_NEUTRAL 1146 /* Rainforest Tree */
 
 		#const BEACH_TERRAIN 2
 
@@ -179,9 +148,9 @@ if MAP_CONSTANTS
 		#const PREDATOR_TERRAIN 83
 		#const STRAGGLER_TERRAIN 83
 		#const RELIC_TERRAIN 83
-	elseif THEME_AMERICAS_TEMPERATE
-		#const S_STRAGGLER 350 /* Pine Tree */
-		#const O_STRAGGLER 350 /* Pine Tree */
+	elseif NEARCTIC_TEMPERATE
+		#const STRAGGLER_SPAWN 350 /* Pine Tree */
+		#const STRAGGLER_NEUTRAL 350 /* Pine Tree */
 
 		#const BEACH_TERRAIN 2
 
@@ -220,9 +189,9 @@ if MAP_CONSTANTS
 		#const PREDATOR_TERRAIN 0
 		#const STRAGGLER_TERRAIN 0
 		#const RELIC_TERRAIN 0
-	elseif THEME_ARCTIC_NORTH
-		#const S_STRAGGLER 1250 /* Dead Tree */
-		#const O_STRAGGLER 1250 /* Dead Tree */
+	elseif NEARCTIC_TUNDRA
+		#const STRAGGLER_SPAWN 1250 /* Dead Tree */
+		#const STRAGGLER_NEUTRAL 1250 /* Dead Tree */
 
 		#const BEACH_TERRAIN 2
 
@@ -263,9 +232,9 @@ if MAP_CONSTANTS
 		#const RELIC_TERRAIN 74
 
 		#define SNOW_GENERATION
-	elseif THEME_ASIAN_COLD
-		#const S_STRAGGLER 1249 /* Snowy Autumn Tree */
-		#const O_STRAGGLER 1249 /* Snowy Autumn Tree */
+	elseif PALAEARCTIC_ASIA_TAIGA
+		#const STRAGGLER_SPAWN 1249 /* Snowy Autumn Tree */
+		#const STRAGGLER_NEUTRAL 1249 /* Snowy Autumn Tree */
 
 		#const BEACH_TERRAIN 2
 
@@ -306,9 +275,9 @@ if MAP_CONSTANTS
 		#const RELIC_TERRAIN 76
 
 		#define SNOW_GENERATION
-	elseif THEME_ASIAN_TROPICAL
-		#const S_STRAGGLER 348 /* Bamboo Tree */
-		#const O_STRAGGLER 348 /* Bamboo Tree */
+	elseif INDOMALAYAN_TROPICAL
+		#const STRAGGLER_SPAWN 348 /* Bamboo Tree */
+		#const STRAGGLER_NEUTRAL 348 /* Bamboo Tree */
 
 		#const BEACH_TERRAIN 2
 
@@ -347,9 +316,9 @@ if MAP_CONSTANTS
 		#const PREDATOR_TERRAIN 60
 		#const STRAGGLER_TERRAIN 60
 		#const RELIC_TERRAIN 60
-	elseif THEME_ASIAN_TEMPERATE
-		#const S_STRAGGLER 348 /* Bamboo */
-		#const O_STRAGGLER 348 /* Bamboo */
+	elseif PALAEARCTIC_ASIA_TEMPERATE
+		#const STRAGGLER_SPAWN 348 /* Bamboo */
+		#const STRAGGLER_NEUTRAL 348 /* Bamboo */
 
 		#const BEACH_TERRAIN 2
 
@@ -388,9 +357,9 @@ if MAP_CONSTANTS
 		#const PREDATOR_TERRAIN 100
 		#const STRAGGLER_TERRAIN 100
 		#const RELIC_TERRAIN 100
-	elseif THEME_EASTERN
-		#const S_STRAGGLER 351 /* Palm Tree */
-		#const O_STRAGGLER 351 /* Palm Tree */
+	elseif PALAEARCTIC_MIDDLE_EAST_DESERT
+		#const STRAGGLER_SPAWN 351 /* Palm Tree */
+		#const STRAGGLER_NEUTRAL 351 /* Palm Tree */
 
 		#const BEACH_TERRAIN 2
 
@@ -430,9 +399,9 @@ if MAP_CONSTANTS
 		#const PREDATOR_TERRAIN 14
 		#const STRAGGLER_TERRAIN 14
 		#const RELIC_TERRAIN 14
-	elseif THEME_EUROPEAN
-		#const S_STRAGGLER 349 /* Oak Tree */
-		#const O_STRAGGLER 349 /* Oak Tree */
+	elseif PALAEARCTIC_EUROPE_TEMPERATE
+		#const STRAGGLER_SPAWN 349 /* Oak Tree */
+		#const STRAGGLER_NEUTRAL 349 /* Oak Tree */
 
 		#const BEACH_TERRAIN 2
 
@@ -471,9 +440,9 @@ if MAP_CONSTANTS
 		#const PREDATOR_TERRAIN 12
 		#const STRAGGLER_TERRAIN 12
 		#const RELIC_TERRAIN 12
-	elseif THEME_EUROPEAN_COLD
-		#const S_STRAGGLER 413 /* Snowy Pine Tree */
-		#const O_STRAGGLER 413 /* Snowy Pine Tree */
+	elseif PALAEARCTIC_EUROPE_TAIGA
+		#const STRAGGLER_SPAWN 413 /* Snowy Pine Tree */
+		#const STRAGGLER_NEUTRAL 413 /* Snowy Pine Tree */
 
 		#const BEACH_TERRAIN 2
 
@@ -522,35 +491,36 @@ endif
 #include_drs includes/decay.inc
 
 <PLAYER_SETUP>
-guard_state TOWN_CENTER AMOUNT_GOLD 0 1
-#const TC_TECH 187
-#const CUMAN_TC  218
-effect_amount DISABLE_TECH TC_TECH ATTR_DISABLE 187
-effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 	#include_drs includes/preliminaries.inc
+	#include_drs includes/gaia_civilisation.inc
+
+	#define WATER_NONE
+	#include_drs includes/water_preset.inc
+	water_definition WATER_PRESET
 
 	random_placement
+	ai_info_map_type ARENA 0 0
 
-		if THEME_AFRICAN
+		if AFROTROPICAL_TROPICAL
 			effect_amount GAIA_UPGRADE_UNIT TREE_PALM TREE_DEAD 0
-		elseif THEME_AMERICAS_TROPICAL
+		elseif NEOTROPICAL_TROPICAL
 			effect_amount GAIA_UPGRADE_UNIT TREE_BAMBOO BUSH_A 0
 			effect_amount GAIA_UPGRADE_UNIT BUSH_B BUSH_A 0
-		elseif THEME_AMERICAS_TEMPERATE
-		elseif THEME_ARCTIC_NORTH
+		elseif NEARCTIC_TEMPERATE
+		elseif NEARCTIC_TUNDRA
 			effect_amount GAIA_UPGRADE_UNIT TREE_PINE_SNOW BUSH_SNOW 0
-		elseif THEME_ASIAN_COLD
+		elseif PALAEARCTIC_ASIA_TAIGA
 			effect_amount GAIA_UPGRADE_UNIT TREE_JUNGLE BUSH_SNOW 0
 			effect_amount GAIA_UPGRADE_UNIT BUSH_A BUSH_SNOW 0
 			effect_amount GAIA_UPGRADE_UNIT BUSH_B BUSH_SNOW 0
-		elseif THEME_ASIAN_TROPICAL
+		elseif INDOMALAYAN_TROPICAL
 			effect_amount GAIA_UPGRADE_UNIT TREE_BIRCH TREE_BAMBOO_LUSH 0
-		elseif THEME_ASIAN_TEMPERATE
+		elseif PALAEARCTIC_ASIA_TEMPERATE
 			effect_amount GAIA_UPGRADE_UNIT TREE_BIRCH TREE_AUTUMN 0
-		elseif THEME_EASTERN
+		elseif PALAEARCTIC_MIDDLE_EAST_DESERT
 			effect_amount GAIA_UPGRADE_UNIT TREE_DRAGON TREE_DEAD 0
-		elseif THEME_EUROPEAN
-		elseif THEME_EUROPEAN_COLD
+		elseif PALAEARCTIC_EUROPE_TEMPERATE
+		elseif PALAEARCTIC_EUROPE_TAIGA
 		endif
 
 	if CONFINED_SETUP
@@ -558,12 +528,9 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 	else
 		#const CONFINED_INCREASE 1
 	endif
-	
+
 <LAND_GENERATION>
 	base_terrain FOREST_EDGE
-	enable_waves 0
-
-	#include_drs includes/market_lands.inc
 
 	create_land
 	{
@@ -4433,16 +4400,14 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 	}
 
 <CLIFF_GENERATION>
-	#const MIN_CLIFF_NUMBER 3
-	#const MAX_CLIFF_NUMBER 5
-
 	#include_drs includes/cliffs.inc
+	cliff_type CLIFF_TYPE
 
 <TERRAIN_GENERATION>
 	#include_drs includes/colour.inc
-	color_correction COLOR_MOOD
+	color_correction COLOUR_MOOD
 
-	#include_drs includes/market_terrain.inc
+
 
 	create_terrain FOREST_TERRAIN
 	{
@@ -4838,7 +4803,7 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 		land_percent 4
 		number_of_clumps 24
 
-		if THEME_ARCTIC_NORTH
+		if NEARCTIC_TUNDRA
 			terrain_mask 2
 		else
 			terrain_mask 1
@@ -4851,7 +4816,7 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 		land_percent 4
 		number_of_clumps 24
 
-		if THEME_ARCTIC_NORTH
+		if NEARCTIC_TUNDRA
 			terrain_mask 2
 		else
 			terrain_mask 1
@@ -4864,7 +4829,7 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 		land_percent 4
 		number_of_clumps 24
 
-		if THEME_ARCTIC_NORTH
+		if NEARCTIC_TUNDRA
 			terrain_mask 2
 		else
 			terrain_mask 1
@@ -4877,7 +4842,7 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 		land_percent 4
 		number_of_clumps 24
 
-		if THEME_ARCTIC_NORTH
+		if NEARCTIC_TUNDRA
 			terrain_mask 2
 		else
 			terrain_mask 1
@@ -5013,67 +4978,6 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 			#const RESOURCE_SPACING_FAR 16
 			#const RESOURCE_RESTRICTION 1
 
-			#const FORAGE_BUSH_PRIMARY_DISTANCE 10
-			#define FORAGE_BUSH_PRIMARY
-
-			#const GOLD_PRIMARY_DISTANCE 10
-			#define GOLD_PRIMARY
-
-			#const GOLD_SECONDARY_DISTANCE 12
-			#define GOLD_SECONDARY
-
-			#const GOLD_TERTIARY_DISTANCE 26
-			#define GOLD_TERTIARY
-
-			#const GOLD_ADDITIONAL_FOREST_DISTANCE 4
-			#define GOLD_ADDITIONAL
-
-			#const STONE_PRIMARY_DISTANCE 10
-			#define STONE_PRIMARY
-
-			#const STONE_SECONDARY_DISTANCE 26
-			#define STONE_SECONDARY
-
-			#const STONE_ADDITIONAL_FOREST_DISTANCE 4
-			#define STONE_ADDITIONAL
-
-			#define HERDABLE_STARTING_COUNT_FOUR
-			#define HERDABLE_GROUP_COUNT_TWO
-			#define HERDABLE_GROUP_SIZE_TWO
-
-			#define HERDABLE_SMALL_GROUP_COUNT_ZERO
-			#define HERDABLE_SMALL_GROUP_SIZE_ZERO
-
-			start_random
-				percent_chance 50 #define GAME_HUNTABLE
-				percent_chance 50 #define GAME_CHICKEN
-			end_random
-
-			if GAME_HUNTABLE
-				start_random
-					percent_chance 80
-						#define HUNTABLE_AMOUNT_THREE
-					percent_chance 20
-						#define HUNTABLE_AMOUNT_FOUR
-				end_random
-			endif
-
-			#define HUNTABLE_ADDITIONAL_AMOUNT_ZERO
-
-			if GAME_CHICKEN
-				start_random
-					percent_chance 20
-						#define HUNTABLE_SMALL_AMOUNT_SIX
-					percent_chance 40
-						#define HUNTABLE_SMALL_AMOUNT_SEVEN
-					percent_chance 40
-						#define HUNTABLE_SMALL_AMOUNT_EIGHT
-				end_random
-			endif
-
-			#define HUNTABLE_NEUTRAL_SMALL_AMOUNT_SIX
-
-			#include_drs includes/selection.inc
 			#include_drs includes/object_setup.inc
 			#include_drs includes/market_objects.inc
 
@@ -5084,13 +4988,16 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 				temp_min_distance_group_placement 2
 				terrain_to_place_on FOREST_TERRAIN
 
-				actor_area 2500 /* Forest Area */
+				actor_area 7000 /* Forest Area */
 				actor_area_radius 6
 			}
 		endif
 
-		#include_drs includes/starting_objects.inc
+		#include_drs includes/town_centres.inc
+		#include_drs includes/villagers.inc
+		#include_drs includes/scouts.inc
 
+		#define WALL_ENABLE
 		#const WALL_RADIUS 20
 
 		create_object PLACEMENT_BLOCKER
@@ -5145,40 +5052,88 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 
 		#include_drs includes/walls.inc
 
+		#include_drs includes/defend_wonder.inc
+		#include_drs includes/regicide.inc
+		#include_drs includes/capture_relic.inc
+
 		if NOMAD_START
 		else
-			#const STRAGGLER_DISTANCE (WALL_RADIUS + 2)
 			#include_drs includes/stragglers.inc
+
+			#const FORAGE_BUSH_PRIMARY_DISTANCE 10
+			#define FORAGE_BUSH_PRIMARY
+
+			#const GOLD_PRIMARY_DISTANCE 10
+			#define GOLD_PRIMARY
+
+			#const GOLD_SECONDARY_DISTANCE 12
+			#define GOLD_SECONDARY
+
+			#const GOLD_TERTIARY_DISTANCE 26
+			#define GOLD_TERTIARY
+
+			#const GOLD_ADDITIONAL_FOREST_DISTANCE 4
+			#define GOLD_ADDITIONAL
+
+			#const STONE_PRIMARY_DISTANCE 10
+			#define STONE_PRIMARY
+
+			#const STONE_SECONDARY_DISTANCE 26
+			#define STONE_SECONDARY
+
+			#const STONE_ADDITIONAL_FOREST_DISTANCE 4
+			#define STONE_ADDITIONAL
 			#include_drs includes/starting_resources.inc
 
 			if DEATH_MATCH
 			elseif INFINITE_RESOURCES
 			else
+				#define HERDABLE_STARTING_COUNT_FOUR
+				
+				#include_drs includes/herdable_starting.inc
+
 				#const HERDABLE_DISTANCE 16
+
 				#include_drs includes/herdable.inc
-				#include_drs includes/herdable_small.inc
 
-				#const LUREABLE_DISTANCE 16
-				#const LUREABLE_SPACING 12
-				#include_drs includes/lureable.inc
+				start_random
+					percent_chance 50 #define GAME_HUNTABLE
+					percent_chance 50 #define GAME_CHICKEN
+				end_random
 
-				#const HUNTABLE_DISTANCE 14
+				if GAME_HUNTABLE
+					start_random
+						percent_chance 80
+							#const HUNTABLE_COUNT 3
+						percent_chance 20
+							#const HUNTABLE_COUNT 4
+					end_random
+
+					#const HUNTABLE_GROUPS 1
+					#const HUNTABLE_DISTANCE 14
+				endif
+
+				if GAME_CHICKEN
+					start_random
+						percent_chance 20
+							#const HUNTABLE_SMALL_COUNT 6
+						percent_chance 40
+							#const HUNTABLE_SMALL_COUNT 7
+						percent_chance 40
+							#const HUNTABLE_SMALL_COUNT 8
+					end_random
+
+					#const HUNTABLE_SMALL_GROUPS 1
+				endif
+
 				#include_drs includes/huntable.inc
+
+				#const LUREABLE_DISTANCE 12
+				#const LUREABLE_SPACING 10
+
+				#include_drs includes/lureable.inc
+				#include_drs includes/furbearers.inc
 			endif
-		endif
-
-		#include_drs includes/neritic.inc
-		#include_drs includes/aquatic_freshwater.inc
-		#include_drs includes/aquatic_saltwater.inc
-		#include_drs includes/reeds.inc
-
-		if DEATH_MATCH
-		else
-			#const PREDATOR_COUNT 4
-			#include_drs includes/predators.inc
-
-			#const STRAGGLER_COUNT 10
-			#include_drs includes/stragglers_neutral.inc
 		endif
 
 		if INFINITE_RESOURCES
@@ -5200,95 +5155,174 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 				avoid_cliff_zone 4
 				min_distance_to_map_edge 6
 
-				actor_area 120
-				actor_area_radius 4
-				
-				avoid_actor_area 70 /* Primary Forage Bush */
-				avoid_actor_area 71 /* Secondary Forage Bush */
-				avoid_actor_area 72 /* Tertiary Forage Bush */
-				avoid_actor_area 80 /* Primary Gold */
-				avoid_actor_area 81 /* Secondary Gold */
-				avoid_actor_area 82 /* Tertiary Gold */
-				avoid_actor_area 90 /* Primary Stone */
-				avoid_actor_area 91 /* Secondary Stone */
-				avoid_actor_area 92 /* Tertiary Stone */
-				avoid_actor_area 100 /* Neutral Gold */
-				avoid_actor_area 110 /* Neutral Stone */
-				avoid_actor_area 120 /* Neutral Forage Bush */
-				avoid_actor_area 250 /* Relic */
-				avoid_actor_area 1250 /* Relic, Spacer */
-				avoid_actor_area 1700 /* Default Primary Forage Bush, Spacer */
-				avoid_actor_area 1710 /* Default Secondary Forage Bush, Spacer */
-				avoid_actor_area 1720 /* Default Tertiary Forage Bush, Spacer */
-				avoid_actor_area 1800 /* Default Primary Gold, Spacer */
-				avoid_actor_area 1810 /* Default Secondary Gold, Spacer */
-				avoid_actor_area 1820 /* Default Tertiary Gold, Spacer */
-				avoid_actor_area 1900 /* Default Primary Stone, Spacer */
-				avoid_actor_area 1910 /* Default Secondary Stone, Spacer */
-				avoid_actor_area 1920 /* Default Tertiary Stone, Spacer */
+				actor_area 1000
+				actor_area_radius 2
+
+				avoid_actor_area 20 /* Villagers */
+				avoid_actor_area 21 /* Villagers, Additional A */
+				avoid_actor_area 22 /* Villagers, Additional B */
+				avoid_actor_area 30 /* Scout */
+				avoid_actor_area 31 /* Scout, Secondary */
+				avoid_actor_area 32 /* Scout, Tertiary */
+				avoid_actor_area 50 /* Walls */
+				avoid_actor_area 51 /* Walls, Second Layer */
+				avoid_actor_area 52 /* Walls, Third Layer */
+				avoid_actor_area 60 /* Straggler, Spawn */
+				avoid_actor_area 61 /* Straggler, Escalation Mode */
+
+				avoid_actor_area 100 /* Primary Forage Bush */
+				avoid_actor_area 110 /* Secondary Forage Bush */
+				avoid_actor_area 120 /* Tertiary Forage Bush */
+				avoid_actor_area 130 /* Additional Forage Bush */
+				avoid_actor_area 140 /* Custom Forage Bush */
+				avoid_actor_area 150 /* Custom Forage Bush */
+				avoid_actor_area 200 /* Primary Gold */
+				avoid_actor_area 210 /* Secondary Gold */
+				avoid_actor_area 220 /* Tertiary Gold */
+				avoid_actor_area 230 /* Additional Gold */
+				avoid_actor_area 240 /* Custom Gold */
+				avoid_actor_area 250 /* Custom Gold */
+				avoid_actor_area 300 /* Primary Stone */
+				avoid_actor_area 310 /* Secondary Stone */
+				avoid_actor_area 320 /* Tertiary Stone */
+				avoid_actor_area 330 /* Additional Stone */
+				avoid_actor_area 340 /* Custom Stone */
+				avoid_actor_area 350 /* Custom Stone */
+
+				avoid_actor_area 5100 /* King */
+				avoid_actor_area 5110 /* Tower & Castle */
+				avoid_actor_area 5350 /* Monastery */
+				avoid_actor_area 5400 /* Wonder */
+
+				avoid_actor_area 10100 /* Default Primary Forage Bush - Spacer */
+				avoid_actor_area 10200 /* Default Primary Gold - Spacer */
+				avoid_actor_area 10300 /* Default Primary Stone - Spacer */
+
+				avoid_actor_area 11000 /* Neutral Forage Bush - Spacer */
+				avoid_actor_area 11001 /* Neutral Forage Bush, Additional A - Spacer */
+				avoid_actor_area 11002 /* Neutral Forage Bush, Additional B - Spacer */
+				avoid_actor_area 11010 /* Neutral Gold - Spacer */
+				avoid_actor_area 11011 /* Neutral Gold, Additional A - Spacer */
+				avoid_actor_area 11012 /* Neutral Gold, Additional B - Spacer */
+				avoid_actor_area 11020 /* Neutral Stone - Spacer */
+				avoid_actor_area 11021 /* Neutral Stone, Additional - Spacer A */
+				avoid_actor_area 11022 /* Neutral Stone, Additional - Spacer B */
 			}
 
-			create_object PLACEHOLDER_GENERIC /* Forage Bush, Spacer */
+			create_object PLACEHOLDER_GENERIC /* Neutral Forage Bush - Spacer */
 			{
 				number_of_objects 1024
 				temp_min_distance_group_placement 1
-				actor_area_to_place_in 120
+				actor_area_to_place_in 1000
 
-				actor_area 1120
+				actor_area 11000
 				actor_area_radius 6
 			}
 
-			if HUNTABLE_NEUTRAL_SMALL_AMOUNT_ZERO
-			else
-				create_object PLACEHOLDER_LAND
-				{
-					number_of_objects 1024
-					min_distance_to_players 32
-					temp_min_distance_group_placement 24
-					terrain_to_place_on BASE_TERRAIN
+			create_object FURBEARER_B
+			{
+				number_of_objects 2
+				number_of_groups 1024
+				set_loose_grouping
+				group_placement_radius 2
+				min_distance_to_players 32
+				temp_min_distance_group_placement 24
+				terrain_to_place_on BASE_TERRAIN
 
-					max_distance_to_other_zones 6
-					avoid_forest_zone 4
-					avoid_cliff_zone 4
-					min_distance_to_map_edge 6
+				min_distance_group_placement 1
+				max_distance_to_other_zones 6
+				avoid_forest_zone 4
+				avoid_cliff_zone 4
+				min_distance_to_map_edge 2
 
-					actor_area 1130
-					actor_area_radius HUNTABLE_NEUTRAL_SMALL_PLACEMENT_RADIUS
+				actor_area 1060
+				actor_area_radius 2
 
-					avoid_actor_area 70 /* Primary Forage Bush */
-					avoid_actor_area 71 /* Secondary Forage Bush */
-					avoid_actor_area 72 /* Tertiary Forage Bush */
-					avoid_actor_area 120 /* Neutral Forage Bush */
-					avoid_actor_area 130 /* Neutral Small Huntable */
-					avoid_actor_area 140 /* Neutral Huntable */
-					avoid_actor_area 145 /* Neutral Additional Huntable */
-					avoid_actor_area 1120 /* Neutral Forage Bush, Spacer */
-					avoid_actor_area 1130 /* Neutral Small Huntable Container */
-					avoid_actor_area 1145 /* Neutral Additional Huntable Container */
-					avoid_actor_area 1400 /* Neutral Huntable Container */
-					avoid_actor_area 1700 /* Default Primary Forage Bush, Spacer */
-					avoid_actor_area 1710 /* Default Secondary Forage Bush, Spacer */
-					avoid_actor_area 1720 /* Default Tertiary Forage Bush, Spacer */
-					avoid_actor_area 1802 /* Minimum Primary Gold Distance */
-					avoid_actor_area 1812 /* Minimum Secondary Gold Distance */
-					avoid_actor_area 1822 /* Minimum Tertiary Gold Distance */
-					avoid_actor_area 1902 /* Minimum Primary Stone Distance */
-					avoid_actor_area 1912 /* Minimum Secondary Stone Distance */
-					avoid_actor_area 1922 /* Minimum Tertiary Stone Distance */
-				}
+				avoid_actor_area 20 /* Villagers */
+				avoid_actor_area 21 /* Villagers, Additional A */
+				avoid_actor_area 22 /* Villagers, Additional B */
+				avoid_actor_area 30 /* Scout */
+				avoid_actor_area 31 /* Scout, Secondary */
+				avoid_actor_area 32 /* Scout, Tertiary */
+				avoid_actor_area 50 /* Walls */
+				avoid_actor_area 51 /* Walls, Second Layer */
+				avoid_actor_area 52 /* Walls, Third Layer */
+				avoid_actor_area 60 /* Straggler, Spawn */
+				avoid_actor_area 61 /* Straggler, Escalation Mode */
 
-				#include_drs includes/huntable_neutral_small.inc
-			endif
+				avoid_actor_area 1000 /* Neutral Forage Bush */
+				avoid_actor_area 1001 /* Neutral Forage Bush, Additional A */
+				avoid_actor_area 1002 /* Neutral Forage Bush, Additional B */
+				avoid_actor_area 1010 /* Neutral Gold */
+				avoid_actor_area 1011 /* Neutral Gold, Additional A */
+				avoid_actor_area 1012 /* Neutral Gold, Additional B */
+				avoid_actor_area 1020 /* Neutral Stone */
+				avoid_actor_area 1021 /* Neutral Stone, Additional A */
+				avoid_actor_area 1022 /* Neutral Stone, Additional B */
+				avoid_actor_area 1030 /* Neutral Small Herdable */
+				avoid_actor_area 1031 /* Neutral Small Herdable, Additional A */
+				avoid_actor_area 1032 /* Neutral Small Herdable, Additional B */
+				avoid_actor_area 1035 /* Neutral Herdable */
+				avoid_actor_area 1036 /* Neutral Herdable, Additional A */
+				avoid_actor_area 1037 /* Neutral Herdable, Additional B */
+				avoid_actor_area 1040 /* Neutral Small Huntable */
+				avoid_actor_area 1041 /* Neutral Small Huntable, Additional A */
+				avoid_actor_area 1042 /* Neutral Small Huntable, Additional B */
+				avoid_actor_area 1045 /* Neutral Huntable */
+				avoid_actor_area 1046 /* Neutral Huntable, Additional A */
+				avoid_actor_area 1047 /* Neutral Huntable, Additional B */
+				avoid_actor_area 1050 /* Neutral Lureable */
+				avoid_actor_area 1051 /* Neutral Lureable, Additional A */
+				avoid_actor_area 1052 /* Neutral Lureable, Additional B */
+				avoid_actor_area 1060 /* Neutral Furbearers */
+				avoid_actor_area 1061 /* Neutral Furbearers, Additional A */
+				avoid_actor_area 1062 /* Neutral Furbearers, Additional B */
+
+				avoid_actor_area 5100 /* King */
+				avoid_actor_area 5110 /* Tower & Castle */
+				avoid_actor_area 5350 /* Monastery */
+				avoid_actor_area 5400 /* Wonder */
+
+				avoid_actor_area 10102 /* Minimum Primary Forage Bush - Spacer */
+				avoid_actor_area 10202 /* Minimum Primary Gold - Spacer */
+				avoid_actor_area 10302 /* Minimum Primary Stone - Spacer */
+			}
 		endif
 
-		#const RELIC_SPACING 12
-		#include_drs includes/relics.inc
+		if DEATH_MATCH
+		else
+			#const PREDATOR_GROUPS 4
 
+			#include_drs includes/predators.inc
+			#include_drs includes/riparian.inc
+		endif
+
+		#include_drs includes/neritic.inc
+		#include_drs includes/oysters.inc
+		#include_drs includes/aquatic_freshwater.inc
+		#include_drs includes/aquatic_saltwater.inc
+
+		if DEATH_MATCH
+		else
+			#const STRAGGLER_GROUPS 10
+			#const STRAGGLER_DISTANCE (WALL_RADIUS + 2)
+			
+			#include_drs includes/stragglers_neutral.inc
+			#include_drs includes/stragglers_coastal.inc
+			#include_drs includes/reeds.inc
+		endif
+
+		#define RELIC_TYPE_UNRESTRICTED
+		#const RELIC_SPACING 12
+
+		#include_drs includes/relics.inc
 		#include_drs includes/remote_resources.inc
 
 		#define EXTRA_STUFF
 		if EXTRA_STUFF
 			if EMPIRE_WARS_MODE
+				#define EMPIRE_WARS_FORAGERS
+
 				#include_drs includes/empire_wars.inc
 				#include_drs includes/empire_food.inc
 				#include_drs includes/empire_gold.inc
@@ -5317,10 +5351,10 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 					set_scaling_to_map_size
 					terrain_to_place_on BASE_TERRAIN
 					
-					actor_area 5000
+					actor_area 8000
 					actor_area_radius 0
 
-					avoid_actor_area 5 /* Walls */
+					avoid_actor_area 50 /* Walls */
 				}
 
 				create_object MIDDLE_AESTHETIC_B
@@ -5329,9 +5363,9 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 					set_scaling_to_map_size
 					terrain_to_place_on BASE_TERRAIN
 
-					avoid_actor_area 5000
-
-					avoid_actor_area 5 /* Walls */
+					avoid_actor_area 50 /* Walls */
+					
+					avoid_actor_area 8000 /* Middle Aesthetic A */
 				}
 
 				create_object FOREST_AESTHETIC
@@ -5341,11 +5375,12 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 					terrain_to_place_on SPAWN_TERRAIN
 					place_on_forest_zone
 
-					avoid_actor_area 5 /* Walls */
-					avoid_actor_area 10 /* Spawn Straggler */
-					avoid_actor_area 11 /* Escalation Mode, Straggler */
-					avoid_actor_area 190 /* Neutral Straggler */
-					avoid_actor_area 5000
+					avoid_actor_area 50 /* Walls */
+					avoid_actor_area 60 /* Spawn Straggler */
+					avoid_actor_area 61 /* Spawn Straggler, Escalation Mode */
+					avoid_actor_area 1300 /* Neutral Straggler */
+
+					avoid_actor_area 8000 /* Middle Aesthetic A */
 				}
 
 				create_object FOREST_AESTHETIC
@@ -5356,11 +5391,12 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 					terrain_to_place_on BASE_TERRAIN
 					place_on_forest_zone
 
-					avoid_actor_area 5 /* Walls */
-					avoid_actor_area 10 /* Spawn Straggler */
-					avoid_actor_area 11 /* Escalation Mode, Straggler */
-					avoid_actor_area 190 /* Neutral Straggler */
-					avoid_actor_area 5000
+					avoid_actor_area 50 /* Walls */
+					avoid_actor_area 60 /* Spawn Straggler */
+					avoid_actor_area 61 /* Spawn Straggler, Escalation Mode */
+					avoid_actor_area 1300 /* Neutral Straggler */
+
+					avoid_actor_area 8000 /* Middle Aesthetic A */
 				}
 			endif
 		endif
