@@ -657,7 +657,7 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 		group_placement_radius 1
 		min_distance_to_players 11
 			if TINY_MAP
-		max_distance_to_players 14
+		max_distance_to_players 15
 			elseif MEDIUM_MAP
 		max_distance_to_players 15
 			elseif LARGE_MAP
