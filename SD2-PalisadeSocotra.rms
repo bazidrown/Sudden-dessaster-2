@@ -848,7 +848,7 @@ number_of_objects 7
 number_of_groups 1
 set_tight_grouping
 max_distance_to_players 8
-min_distance_to_players 6
+min_distance_to_players 7
 group_placement_radius 2 
 } 
 
