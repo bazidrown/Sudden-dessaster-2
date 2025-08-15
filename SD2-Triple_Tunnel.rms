@@ -4937,7 +4937,7 @@ effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
 			create_object LUREABLE_A
 			{
 				place_on_specific_land_id 666
-				number_of_objects 5
+				number_of_objects 1
 				number_of_groups 1
 				set_tight_grouping
 				group_placement_radius 1
