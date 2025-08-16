@@ -584,8 +584,8 @@ set_circular_placement
    set_loose_grouping
    set_gaia_object_only
    set_place_for_every_player
-   min_distance_to_players    9
-   max_distance_to_players    10
+   min_distance_to_players    8
+   max_distance_to_players    9
 }
 create_object HERDABLE
 {
