@@ -795,7 +795,21 @@ percent_chance 50 find_closest_to_map_center
 end_random
 } 
 
-
+create_object GOLD {
+set_gaia_object_only
+set_place_for_every_player
+number_of_objects 5
+temp_min_distance_group_placement 20
+min_distance_to_players 14
+max_distance_to_players 16
+set_tight_grouping
+max_distance_to_other_zones 5
+avoid_forest_zone 2
+actor_area 113311
+actor_area_radius 5
+group_placement_radius 1
+avoid_forest_zone 6
+}
 
 create_object GOLD {
 set_gaia_object_only
@@ -804,7 +818,7 @@ number_of_objects 2
 min_distance_to_players 16
 max_distance_to_players 18
 set_tight_grouping
-max_distance_to_other_zones 5
+max_distance_to_other_zones 10
 avoid_forest_zone 2
 actor_area 112211
 actor_area_radius 10
@@ -826,23 +840,6 @@ avoid_actor_area 113311
 actor_area 4143
 actor_area_radius 10
 } 
-create_object GOLD {
-set_gaia_object_only
-set_place_for_every_player
-number_of_objects 5
-temp_min_distance_group_placement 20
-min_distance_to_players 14
-max_distance_to_players 16
-set_tight_grouping
-max_distance_to_other_zones 5
-avoid_forest_zone 2
-avoid_actor_area 112211
-avoid_actor_area 4143
-actor_area 113311
-actor_area_radius 5
-group_placement_radius 1
-avoid_forest_zone 6
-}
 
 create_object STONE {
 set_gaia_object_only
@@ -959,7 +956,7 @@ endif
   set_tight_grouping
   find_closest
   avoid_forest_zone 2
-  max_distance_to_other_zones 4
+  max_distance_to_other_zones 10
   avoid_actor_area 9410
   avoid_actor_area 4242
   avoid_actor_area 4143
