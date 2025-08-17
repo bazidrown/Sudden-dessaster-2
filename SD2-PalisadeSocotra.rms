@@ -789,7 +789,10 @@ set_gaia_object_only
 set_place_for_every_player
 min_distance_to_players 12
 max_distance_to_players 15
-
+start_random
+percent_chance 50 max_distance_to_other_zones 15
+percent_chance 50 find_closest_to_map_center
+end_random
 } 
 
 
