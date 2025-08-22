@@ -595,11 +595,13 @@ create_object DLC_ZEBRA
 	number_of_groups 2
 	set_place_for_every_player
 	set_gaia_object_only
-	set_loose_grouping
+	set_tight_grouping
 	min_distance_to_players 20
 	max_distance_to_players 30
 	min_distance_group_placement 10
-	
+	terrain_to_place_on GRASS3
+	temp_min_distance_group_placement 30
+	avoid_forest_zone 10
 }
 if DLC_GOAT
 	create_object DLC_GOAT /* secondary */
@@ -778,28 +780,25 @@ create_object RELIC
 	number_of_objects 1
 	set_gaia_object_only
 	actor_area_to_place_in 1
-	min_distance_group_placement 10
+	
 }
 create_object RELIC
 {
 	number_of_objects 1
 	set_gaia_object_only
 	actor_area_to_place_in 2
-	min_distance_group_placement 6
 }
 create_object RELIC
 {
 	number_of_objects 1
 	set_gaia_object_only
 	actor_area_to_place_in 3
-	min_distance_group_placement 10
 }
 create_object RELIC
 {
 	number_of_objects 1
 	set_gaia_object_only
 	actor_area_to_place_in 4
-	min_distance_group_placement 6
 }
 
 if 4_PLAYER_GAME

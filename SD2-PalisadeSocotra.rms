@@ -20,6 +20,11 @@ override_map_size 400
 endif
 
 <PLAYER_SETUP>
+guard_state TOWN_CENTER AMOUNT_GOLD 0 1
+#const TC_TECH 187
+#const CUMAN_TC  218
+effect_amount DISABLE_TECH TC_TECH ATTR_DISABLE 187
+effect_amount MOD_RESOURCE CUMAN_TC  ATTR_DISABLE 0
   random_placement 
 	ai_info_map_type ARABIA 0 0 0
 
@@ -782,26 +787,14 @@ create_object DLC_ELEPHANT {
 number_of_objects 1
 set_gaia_object_only 
 set_place_for_every_player
-min_distance_to_players 16
-max_distance_to_players 18
-
+min_distance_to_players 12
+max_distance_to_players 15
+start_random
+percent_chance 50 max_distance_to_other_zones 15
+percent_chance 50 find_closest_to_map_center
+end_random
 } 
 
-
-
-create_object GOLD {
-set_gaia_object_only
-set_place_for_every_player
-number_of_objects 2
-min_distance_to_players 16
-max_distance_to_players 18
-set_tight_grouping
-max_distance_to_other_zones 5
-avoid_forest_zone 2
-actor_area 112211
-actor_area_radius 10
-find_closest_to_map_edge
-} 
 create_object GOLD {
 set_gaia_object_only
 set_place_for_every_player
@@ -812,27 +805,58 @@ max_distance_to_players 16
 set_tight_grouping
 max_distance_to_other_zones 5
 avoid_forest_zone 2
-avoid_actor_area 112211
 actor_area 113311
-actor_area_radius 3
+actor_area_radius 5
 group_placement_radius 1
 avoid_forest_zone 6
+}
+
+create_object GOLD {
+set_gaia_object_only
+set_place_for_every_player
+number_of_objects 2
+min_distance_to_players 16
+max_distance_to_players 18
+set_tight_grouping
+max_distance_to_other_zones 10
+avoid_forest_zone 2
+actor_area 112211
+actor_area_radius 10
+min_distance_to_map_edge 10
+}
+create_object STONE {
+set_gaia_object_only
+set_place_for_every_player
+number_of_objects 3
+number_of_groups 1
+temp_min_distance_group_placement 20
+min_distance_to_players 15
+max_distance_to_players 20
+set_tight_grouping
+max_distance_to_other_zones 5
+avoid_forest_zone 2
+avoid_actor_area 112211
+avoid_actor_area 113311
+actor_area 4143
+actor_area_radius 10
 } 
 
 create_object STONE {
 set_gaia_object_only
 set_place_for_every_player
 number_of_objects 3
-number_of_groups 2
-temp_min_distance_group_placement 15
-min_distance_to_players 15
-max_distance_to_players 19
+number_of_groups 1
+temp_min_distance_group_placement 20
+min_distance_to_players 20
+max_distance_to_players 30
 set_tight_grouping
 max_distance_to_other_zones 5
 avoid_forest_zone 2
 avoid_actor_area 112211
 avoid_actor_area 113311
-
+avoid_actor_area 4143
+actor_area 4143
+actor_area_radius 10
 } 
 
 
@@ -843,8 +867,9 @@ number_of_objects 7
 number_of_groups 1
 set_tight_grouping
 max_distance_to_players 8
-min_distance_to_players 6
+min_distance_to_players 7
 group_placement_radius 2 
+avoid_forest_zone 3
 } 
 
 #const STRAGGLER 1051
@@ -887,13 +912,17 @@ endif
   avoid_forest_zone 1
   max_distance_to_other_zones 4
   avoid_actor_area 9410
+  actor_area 4242
+  actor_area_radius 10
+  avoid_actor_area 4143
+  avoid_actor_area 112211
 if SAVCA
   terrain_to_place_on DIRT4
 elseif POUST
   terrain_to_place_on SAVANNAH
 endif
 if TINY_MAP
-  min_distance_to_players 20
+  min_distance_to_players 25
 elseif SMALL_MAP
   min_distance_to_players 18
 elseif MEDIUM_MAP
@@ -927,15 +956,18 @@ endif
   set_tight_grouping
   find_closest
   avoid_forest_zone 2
-  max_distance_to_other_zones 4
+  max_distance_to_other_zones 10
   avoid_actor_area 9410
+  avoid_actor_area 4242
+  avoid_actor_area 4143
+  avoid_actor_area 112211
 if SAVCA
   terrain_to_place_on SAVANNAH
 elseif POUST
   terrain_to_place_on DIRT4
 endif
 if TINY_MAP
-  min_distance_to_players 20
+  min_distance_to_players 30
 elseif SMALL_MAP
   min_distance_to_players 18
 elseif MEDIUM_MAP
@@ -1034,8 +1066,8 @@ set_gaia_object_only
 set_place_for_every_player
 number_of_objects 5
 number_of_groups 1
-min_distance_to_players 14
-max_distance_to_players 17
+min_distance_to_players 13
+max_distance_to_players 16
 avoid_actor_area 114411
 avoid_forest_zone 6
 } 
