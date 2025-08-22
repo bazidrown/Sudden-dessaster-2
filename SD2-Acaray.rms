@@ -220,8 +220,8 @@ else
 left_border 89
 endif
 top_border 20
-land_position 99 99
-border_fuzziness 1
+land_position 98 50
+border_fuzziness 20
 land_percent 100
 clumping_factor 40
 base_elevation 1
@@ -404,7 +404,7 @@ right_border 50
 create_elevation 1 {
 base_terrain DIRT
 spacing 5
-number_of_clumps 400
+number_of_clumps 4000
 number_of_tiles 44000
 enable_balanced_elevation
 }
@@ -412,14 +412,14 @@ enable_balanced_elevation
 create_elevation 7 {
 base_terrain DLC_DESERTGRAVEL
 spacing 5
-number_of_clumps 400
+number_of_clumps 4000
 number_of_tiles 44000
 enable_balanced_elevation
 }
 create_elevation 7 {
 base_terrain DLC_DESERTGRAVEL
 spacing 5
-number_of_clumps 400
+number_of_clumps 4000
 number_of_tiles 44000
 enable_balanced_elevation
 }
@@ -427,7 +427,7 @@ enable_balanced_elevation
 create_elevation 7 {
 base_terrain DLC_DESERTGRAVEL
 spacing 5
-number_of_clumps 400
+number_of_clumps 4000
 number_of_tiles 44000
 enable_balanced_elevation
 }
@@ -435,37 +435,37 @@ enable_balanced_elevation
 create_elevation 4 {
 base_terrain DLC_ROCK
 spacing 1
-number_of_clumps 100
+number_of_clumps 1000
 number_of_tiles 10000
 }
 create_elevation 4 {
 base_terrain DLC_ROCK
 spacing 1
-number_of_clumps 100
+number_of_clumps 1000
 number_of_tiles 10000
 }
 create_elevation 4 {
 base_terrain DLC_ROCK
 spacing 1
-number_of_clumps 100
+number_of_clumps 1000
 number_of_tiles 10000
 }
 create_elevation 4 {
 base_terrain DLC_ROCK
 spacing 1
-number_of_clumps 100
+number_of_clumps 1000
 number_of_tiles 10000
 }
 create_elevation 4 {
 base_terrain DLC_ROCK
 spacing 1
-number_of_clumps 100
+number_of_clumps 1000
 number_of_tiles 10000
 }
 create_elevation 4 {
 base_terrain DLC_ROCK
 spacing 1
-number_of_clumps 100
+number_of_clumps 1000
 number_of_tiles 10000
 }
 create_elevation 4 {
